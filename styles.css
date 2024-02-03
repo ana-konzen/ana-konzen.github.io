@@ -1,0 +1,182 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #1a191e;
+    user-select: none;
+  }
+
+ 
+
+.menu {
+    left: calc(50vw - 114px);
+    top: 50px;
+
+    position: fixed;
+}
+  canvas {
+    display: block;
+  }
+  #art {
+    position: fixed;
+    width: 65vw;
+    top: 70px;
+    right: 5vw;
+    /* transform: translateX(-50%); */
+    z-index: -10;
+  }
+
+  #caption {
+  
+
+position: fixed;
+top: calc((65vw/1.485) + 80px);
+/* left: calc(70vw + 300px); */
+right: 5vw;
+width: 300px;
+text-align: right;
+
+
+font-family: "bookmania", serif;
+font-style: normal;
+font-weight: 300;
+font-size: 12px;
+line-height: 16px;
+
+color: #e3ddd1;
+
+
+  }
+
+.header2 {
+font-style: normal;
+position: relative;
+font-weight: 300;
+
+left: 60px;
+top: 5px;
+font-feature-settings: normal; 
+font-size: 20px;
+font-weight: 300;
+
+
+ }
+
+  .gamemenu {
+    width: 400px;
+    /* background: white; */
+    font-family: "bookmania", serif;
+font-style: normal;
+left: 200px;
+top: 100px;
+position: fixed;
+color: #e3ddd1;
+z-index: -99;
+
+
+  }
+
+  .prompts {
+    position: relative;
+    font-weight: 300;
+
+    top: -50px;
+    left: 100px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    line-height: 18px;
+    font-size: 18px;
+font-style: italic;
+transition: all 1s;
+
+
+  }
+
+  .instructions {
+    display: flex;
+    flex-direction: column;
+    line-height: 14px;
+    width: 120px;
+    font-size: 12px;
+    font-family: "halcom", sans-serif;
+font-weight: 300;
+font-style: normal;
+text-align: right;
+position: relative;
+left: -50px;
+top: -500px;
+
+  }
+
+  .bold {
+font-weight: 500;
+
+  }
+
+
+  .instructions span {
+    margin-bottom: 10px;
+  }
+
+  .line {
+    background: #e3ddd1;
+    height: 400px;
+    width: 1px;
+    top: 50px;
+    position: relative;
+    left: 80px;
+
+  }
+  .prompt {
+    margin-bottom: 28px;
+    /* height: 40px; */
+    /* background-color: blue; */
+    position: relative;
+font-feature-settings: 'ss01', 'ss04'; 
+transition: all 1s;
+
+  }
+
+  .prompt:hover {
+    color: rgb(142, 2, 2);
+  }
+
+ 
+  .header {
+    font-weight: 500;
+font-size: 35px;
+line-height: 33px;
+font-style: italic;
+top: 20px;
+position: relative;
+left: -40px;
+font-feature-settings: 'ss01', 'ss04'; 
+
+  }
+
+  .a {
+font-style: italic;
+
+font-feature-settings: 'ss08', "ss14";
+
+  }
+
+  .f {
+font-feature-settings: 'ss16';
+
+  }
+
+
+
+  .location {
+    font-size: 10px;
+    top: 10px;
+    position: relative;
+
+  }
+
+  .italic {
+font-style: italic;
+
+  }
