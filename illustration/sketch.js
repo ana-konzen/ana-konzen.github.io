@@ -7,6 +7,11 @@ let distx = 0;
 let redAng = 0;
 let distX = 0;
 let disty = 0;
+let carPoints = [[30, 100], [390, 100], [400, 40], [350, 30], [300, -50], [100, -50], [0, 50]];
+let wPoints = [[200, 20], [320, 25], [280, -30], [200, -30]];
+let wPoints2 = [[70, 20], [170, 20], [170, -30], [120, -30]];
+let lights = [[398, 50], [408, 50], [405, 70], [395, 70]];
+let lights2 = [[0, 50], [20, 50], [20, 70], [0, 70]];
 
 let palette = ["blue", "red", "green"];
 let carList = [];
@@ -33,6 +38,8 @@ function setup() {
     c.s = claws;
     c.x = clawx;
     c.y = clawy;
+    brush.fillAnimatedMode(true);
+
 }
 
 function windowResized() {
@@ -41,55 +48,19 @@ function windowResized() {
 
 function draw() {
 
-    brush.addField("hi", function(t, field) {
-        let sinrange = random(10,12) + 4 * sin(t);
-        let cosrange = random(3,4) + 2 * cos(t);
-        let baseAngle = random(10,15);
-        for (let column = 0; column < field.length; column++) {
-            for (let row = 0; row < field[0].length; row++) {               
-                let angle = sin(sinrange * column) * (baseAngle * cos(row * cosrange)) + random(-1,1);
-                field[column][row] = angle;
-            }
-        }
-        return field;
-    });
 
-   
-
-    
     background(244, 232, 210);
     translate(-width/2,-height/2);
 
-    brush.field("hi");
+   
     brush.noField();
 
     brush.set("marker", "black", 1);
     brush.rotate(30);
     // brush.fill("#002185", 80);
-    brush.fillAnimatedMode(true);
 
-    // brush.bleed(0.3, "out");
-    // brush.fillTexture(0.3, 0.3);
 
     translate(0, 500);
-
-
-    // translate(distX, 0);
-
-    
-
-    // let blueCar = new cars("blue", distX - 450);
-    // blueCar.show();
-
-    // let greenCar = new cars("green", distX + 450);
-    // greenCar.show();
-
-
-  
-
-    // fill("black");
-    // rect(0, 0, 40, 40);
-
 
 
 
@@ -152,14 +123,6 @@ function draw() {
         }
     }
 
-    // if (frameCount % 30 == 0){
-    //     claws = 100;
-    // }
-    // else if (frameCount % 60 == 0){
-    //     claws = -100;
-
-    // }
-    // else {claws = 0;}
 
     c.s = claws;
     c.x = clawx;
@@ -183,88 +146,63 @@ class cars {
         brush.push();
         push();
         translate(this.x, this.y);
-        brush.fillTexture(0.5, 0.3);
+        // brush.fillTexture(0.5, 0.3);
         
-        brush.bleed(0.01, "out");
 
         brush.fill(this.color, 80);
+        brush.bleed(0.01, "out");
+
         brush.rotate(this.ang);
 
         brush.noStroke();
 
-        brush.beginShape();
-        
-        brush.vertex(30, 100);
-        brush.vertex(390, 100);
-        brush.vertex(400, 40);
-        brush.vertex(350, 30);
-        brush.vertex(300, -50);
-        brush.vertex(100, -50);
-        brush.vertex(0, 50);
+       
 
-        
-        brush.endShape(CLOSE);
+        brush.polygon(carPoints);
+
+
 
         brush.fill("white", 255);
+        // brush.bleed(0.1, "out");
+
+       
 
 
-        brush.beginShape();
-        
-        brush.vertex(200, 20);
-        brush.vertex(320, 25);
-        brush.vertex(280, -30);
-        brush.vertex(200, -30);
-
-        brush.endShape(CLOSE);
+        brush.polygon(wPoints);
+        brush.polygon(wPoints2);
 
 
-        brush.beginShape();
-        
-        brush.vertex(70, 20);
-        brush.vertex(170, 20);
-        brush.vertex(170, -30);
-        brush.vertex(120, -30);
-
-        brush.endShape(CLOSE);
 
         brush.fill("yellow", 255);
         brush.bleed(0.1, "out");
-        brush.fillTexture(0.3, 0.3);
+        // brush.fillTexture(0.3, 0.3);
 
-        brush.beginShape();
         
-        brush.vertex(398, 50);
-        brush.vertex(408, 50);
-        brush.vertex(405, 70);
-        brush.vertex(395, 70);
+
+        brush.polygon(lights);
+        brush.polygon(lights2);
 
 
-        brush.endShape(CLOSE);
 
-
-        brush.beginShape();
-        
-        brush.vertex(0, 50);
-        brush.vertex(20, 50);
-        brush.vertex(20, 70);
-        brush.vertex(0, 70);
-
-
-        brush.endShape(CLOSE);
 
 
     
         // brush.fill("black", 100);
-        brush.bleed(0.1, "out");
-        brush.fillTexture(0.3, 0.3);
+        // brush.fillTexture(0.3, 0.3);
     
         brush.fill("black", 255);
+        brush.bleed(0.1, "out");
+
 
 
         brush.circle(100, 100, 40);
         brush.circle(300, 100, 40);
 
+
+
         brush.fill("white", 255);
+        brush.bleed(0.1, "out");
+
         
         brush.circle(100, 100, 20);
         brush.circle(300, 100, 20);
