@@ -1,0 +1,206 @@
+body {
+    background-color: #EEDEC5;
+margin: 0;
+user-select: none;
+
+
+}
+
+canvas {
+    display: block;
+    position: fixed; 
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+
+.thingies {
+    
+    width: 50%;
+    position: absolute;
+    left: 500px;
+    top: 80px;
+   }
+
+
+   .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+.mainimg {
+    position: absolute;
+    top: 100px;
+    width: 500px;
+    z-index: -1;
+    }
+
+    ul {
+        list-style-type: none;
+        display: none;
+
+       
+      }
+
+.appear {
+    display: block;
+
+}
+
+h2 {
+    color: black;
+    font-family: edita, serif;
+    font-weight: 700;
+font-style: normal;
+    width: 120px;
+    padding: 5px;
+    transition: 1s;
+    position: fixed;
+}
+
+#projects {top: 25vh;}
+
+#circle {
+    width: 500px;
+    height: 500px;
+    background: #722F37;
+    /* border: solid 1px black; */
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(1px);
+    top: 10vh;
+    left: 10vw;
+    animation: blurring 3s infinite alternate;
+    transition: 2s;
+    
+}
+
+@keyframes blurring {
+to{filter: blur(20px);}
+}
+
+
+
+.big h2:hover {filter: blur(2px);
+    cursor: crosshair;}
+
+a {
+    color: black;
+    /* font-weight: bold; */
+    font-size: 15px;
+    /* font-family: sans-serif; */
+    position: relative;
+    user-select: none;
+    transition: color 0.5s;
+}
+
+.big a:hover {color: white;
+    }
+
+
+#main-header{
+    font-family: edita, serif;
+    font-weight: 700;
+    left: 5vw;
+    top: 15vh;
+    font-style: italic;
+    color: black;
+    font-size:40px;
+    position: absolute;
+    user-select: none;
+    text-align: center;
+    width: 500px;
+    height: 60px;
+    
+    
+}
+
+#main-header:hover {
+    cursor: crosshair;
+}
+
+#exclist {
+    position: fixed;
+    top: 15vh;
+    user-select: none;
+
+}
+
+#prolist {
+    position: fixed;
+    top: 30vh;
+    user-select: none;
+
+}
+
+
+
+
+
+.small {display: none;}
+
+@media screen and (max-width: 600px) {
+
+    canvas {display: none;}
+
+
+
+    .big {display: none;}
+    .small {display: block;}
+
+    .thingies {
+
+        position: absolute;
+        left: 50vw;
+        transform: translateX(-50%);
+        top: 350px;
+       }
+       #main-header { color: rgb(51, 51, 51);
+        font-size:50px;
+        left: 50vw;
+        transform: translateX(-50%);
+    }
+
+       .mainimg {
+        width: 400px;
+        top: 80px;
+        left: 50vw;
+        transform: translateX(-50%);
+       }
+
+       h2 {
+        color: rgb(51, 51, 51);
+        font-family: sans-serif;
+        background-color: transparent;
+        user-select: none;
+        
+        position: relative;
+    }
+
+    #exercises {
+    user-select: none;
+
+    }
+
+ 
+
+    #projects {
+    user-select: none;
+
+    }
+
+ 
+
+
+    ul {margin: 0;
+    padding: 10px;
+position: relative;
+top: -20px;
+user-select: none;
+}
+
+
+}
+
