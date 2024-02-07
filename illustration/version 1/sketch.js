@@ -49,7 +49,7 @@ function windowResized() {
 function draw() {
 
 
-    background(244, 232, 210);
+    background(250, 248, 242);
     translate(-width/2,-height/2);
 
    
@@ -65,8 +65,8 @@ function draw() {
 
 
     if(distx < width/2 && disty >= 0){
-        // distx = carList[2].x+450+20;
-        distx = distx + 20;
+        distx = carList[2].x+450+20;
+        // distx = distx + 20;
         disty = 0;
         redAng = 0;
         clawy = - width/2 + distx - 60;
@@ -80,8 +80,8 @@ function draw() {
     }
     else if(disty <= -250 && distx > 0){
         disty = -250;
-        distx = distx - 25; 
-        clawx = clawx - 25;
+        distx = distx - 20; 
+        clawx = clawx - 20;
         if(redAng == -10){
             clawy = clawy - 30;
         }
@@ -90,7 +90,7 @@ function draw() {
     }
     else if(distx <= 0 && disty < 0){
         distx = 0;
-        disty = disty +30;
+        disty = disty +20;
         claws = -50;
 
         if(disty > -150){
@@ -114,7 +114,7 @@ function draw() {
                 carList[i].x = 800 - 450*palette.length;
             }
             else{
-                carList[i].x = 20;
+                carList[i].x = carList[i].x + 20;
             }
             carList[i].show();
          }
@@ -252,6 +252,8 @@ class claw {
     brush.vertex(50 + this.s, 110, 7);
     brush.vertex(20 + this.s, 70, 5);
     brush.vertex(150, -200, 2);
+    brush.vertex(200, -200, 2);
+    brush.vertex(200, -800, 2);
     brush.vertex(200, -200, 2);
     brush.vertex(250, -200, 2);
     brush.vertex(380 - this.s, 70, 5);
