@@ -1,5 +1,6 @@
 // let header = document.getElementById("main-header");
 
+let cnv; 
 let exclist = document.getElementById("exclist");
 let exercise = document.getElementById("exercises");
 let project = document.getElementById("projects");
@@ -10,7 +11,7 @@ let prolist = document.getElementById("prolist");
 
 
 function setup() {
-    let cnv = createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight);
     cursor(CROSS);
 
     exercise.addEventListener("click", openExc);
@@ -18,6 +19,10 @@ function setup() {
 
 
 }
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+  }
 
 function draw() {
 
