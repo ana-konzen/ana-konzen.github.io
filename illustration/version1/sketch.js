@@ -13,7 +13,7 @@ let wPoints2 = [[70, 20], [170, 20], [170, -30], [120, -30]];
 let lights = [[398, 50], [408, 50], [405, 70], [395, 70]];
 let lights2 = [[0, 50], [20, 50], [20, 70], [0, 70]];
 
-let palette = ["blue", "red", "green"];
+let palette = ["#3ddbd9", "#f74034", "#5bcf5d"];
 let carList = [];
 let redCar = 1;
 function setup() {
@@ -149,7 +149,7 @@ class cars {
         // brush.fillTexture(0.5, 0.3);
         
 
-        brush.fill(this.color, 80);
+        brush.fill(this.color, 255);
         brush.bleed(0.01, "out");
 
         brush.rotate(this.ang);
