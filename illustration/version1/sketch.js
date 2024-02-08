@@ -58,6 +58,8 @@ function draw() {
     brush.set("marker", "black", 1);
     brush.rotate(30);
     // brush.fill("#002185", 80);
+    // brush.fillTexture(0.5, 0.3);
+
 
 
     translate(0, 500);
@@ -200,7 +202,7 @@ class cars {
 
 
 
-        brush.fill("white", 255);
+        brush.fill("#d1d1d1", 255);
         brush.bleed(0.1, "out");
 
         
