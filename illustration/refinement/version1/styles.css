@@ -1,0 +1,146 @@
+body, html {margin: 0;
+    
+}
+
+canvas {
+    display: block;
+    /* z-index: -2; */
+}
+
+.logo {
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    /* background: red; */
+    width: 180px;
+    top: 50px;
+    height: 50px;
+    z-index: 3;
+
+}
+
+#carCanvas {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+
+}
+
+#grainCanvas {
+    z-index: -2;
+    position: fixed; 
+    top: 0;
+
+}
+
+#scrollCanvas {
+   position: absolute;
+    top: 0px; 
+
+}
+
+#scrollContainer {
+    position: fixed;
+    /* top: 1628px; */
+    top: -800px;
+    left: calc(50vw + 450px);
+    height: 400px;
+    width: 200px;
+
+}
+
+#scrollContainer2 {
+    /* background: black; */
+    position: fixed;
+    /* top: 1628px; */
+    top: -800px;
+    left: 50px;
+    height: 400px;
+    width: 200px;
+
+}
+
+#scrollContainer3 {
+    /* background: black; */
+    position: fixed;
+    /* top: 1628px; */
+    top: -800px;
+    left: -20px;
+    height: 400px;
+    width: 200px;
+
+}
+
+.logo img {
+    width: 100%;
+}
+
+.headline {
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; 
+    font-size: 40px; 
+    /* color: black; */
+    width: 500px;
+    height: 500px;
+    position: absolute ;
+    left: 180px;
+    top: 170px;
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 45px; 
+    z-index: 0;
+}
+
+.headline span {
+    color: #d25908;
+}
+
+.caption{
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    position: absolute;
+    left: 180px;
+    top: 365px;
+}
+
+.caption span {
+    font-size: 11px;
+    color: gray;
+    
+}
+
+
+.article {
+    background: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+    font-size: 22px;
+    width: 680px;
+    line-height: 32px;
+    padding: 150px;
+    padding-top: 80px;
+    height: 3000px;
+    position: absolute;
+    z-index: 2;
+    left: 50vw;
+    transform: translateX(-50%);
+    top: 100vh;
+
+    
+
+}
+
+.article a {
+    color: black;
+}
+
+ .article a:hover {
+    opacity: 50%;
+    text-decoration: none; 
+
+}
+
+.italics {
+    font-style: italic;
+}
