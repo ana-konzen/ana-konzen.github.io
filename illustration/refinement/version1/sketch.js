@@ -474,31 +474,31 @@ function mouseWheel (event) {
 
      }
 
-     if(scrollDelta > 1700 && scrollDelta < 2800){
-        let conX2 = map(scrollDelta, 1700, 2800, -800, -200);
-        scrollContainer2.style.top = conX2 + "px";
-     }
-     else if(scrollDelta >= 2800){
-        scrollContainer2.style.top = "-400px";
+    //  if(scrollDelta > 1700 && scrollDelta < 2800){
+    //     let conX2 = map(scrollDelta, 1700, 2800, -800, -200);
+    //     scrollContainer2.style.top = conX2 + "px";
+    //  }
+    //  else if(scrollDelta >= 2800){
+    //     scrollContainer2.style.top = "-400px";
 
-     }
-     else {
-        scrollContainer2.style.top = "-800px";
+    //  }
+    //  else {
+    //     scrollContainer2.style.top = "-800px";
 
-     }
+    //  }
 
-     if(scrollDelta > 2600 && scrollDelta < 3200){
-        let conX3 = map(scrollDelta, 2600, 3200, -800, -200);
-        scrollContainer3.style.top = conX3 + "px";
-     }
-     else if(scrollDelta >= 3200){
-        scrollContainer3.style.top = "-200px";
+    //  if(scrollDelta > 2600 && scrollDelta < 3200){
+    //     let conX3 = map(scrollDelta, 2600, 3200, -800, -200);
+    //     scrollContainer3.style.top = conX3 + "px";
+    //  }
+    //  else if(scrollDelta >= 3200){
+    //     scrollContainer3.style.top = "-200px";
 
-     }
-     else {
-        scrollContainer3.style.top = "-800px";
+    //  }
+    //  else {
+    //     scrollContainer3.style.top = "-800px";
 
-     }
+    //  }
 
     console.log(scrollDelta);
 
