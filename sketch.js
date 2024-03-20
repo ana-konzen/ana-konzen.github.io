@@ -14,8 +14,6 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     cursor(CROSS);
 
-    exercise.addEventListener("click", openExc);
-    project.addEventListener("click", openPro);
 
 
 }

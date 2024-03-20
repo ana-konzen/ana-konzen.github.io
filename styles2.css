@@ -18,8 +18,8 @@ canvas {
     
     width: 50%;
     position: absolute;
-    left: 500px;
-    top: 80px;
+    left: 200px;
+    top: 100px;
    }
 
 
@@ -39,7 +39,7 @@ canvas {
 
     ul {
         list-style-type: none;
-        display: none;
+        display: block;
 
        
       }
@@ -60,7 +60,9 @@ font-style: normal;
     position: fixed;
 }
 
-#projects {top: 25vh;}
+#projects {top: 0px;
+position: absolute;
+left: 0;}
 
 #circle {
     width: 500px;
@@ -88,16 +90,21 @@ to{filter: blur(20px);}
 
 a {
     color: black;
-    /* font-weight: bold; */
+    font-weight: bold;
     font-size: 15px;
-    /* font-family: sans-serif; */
+    font-family: sans-serif;
     position: relative;
-    user-select: none;
+    line-height: 30px;
+    text-decoration: none;
     transition: color 0.5s;
 }
 
+
+
 .big a:hover {color: white;
     }
+
+
 
 
 #main-header{
@@ -129,11 +136,14 @@ a {
 }
 
 #prolist {
-    position: fixed;
-    top: 30vh;
+    position: absolute;
+    top: 50px;
+    left: -30px;
     user-select: none;
 
 }
+
+
 
 
 
