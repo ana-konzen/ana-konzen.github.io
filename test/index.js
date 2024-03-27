@@ -12,7 +12,7 @@ let app = express();
 
 const router = Router();
 
-let server = app.listen(4000, listening);
+let server = app.listen(2000, listening);
 
 
 import bodyParser from 'body-parser';

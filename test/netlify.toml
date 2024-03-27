@@ -5,5 +5,5 @@
   force = true
   from = "/app/*"
   status = 200
-  to = "/app:splat"
+  to = "/app/:splat"
 
