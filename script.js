@@ -15,7 +15,7 @@ let dwidth = 400;
 let dmargin = 50;
 let cmargin = 10;
 
-for (let i = 0; i < 10; i++){
+for (let i = 0; i < 3; i++){
     let newDiv = document.createElement("div");
     newDiv.classList.add("thumbnail");
     newDiv.style.width = dwidth + "px";

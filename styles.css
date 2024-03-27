@@ -94,12 +94,13 @@ cursor: pointer;
 
 #instructions {
     position: fixed;
-    display: flex;
-    width: calc(100vw - 100px);
-    left: 50vw;
-    transform: translateX(-50%);
+    /* display: flex; */
+    width: 300px;
+    line-height: 20px;
+    right: 50px;
     bottom: 20px;
     font-family: sans-serif;
+    text-align: right;
     justify-content: space-between;
     font-size: 14px;
 user-select: none;
@@ -144,7 +145,7 @@ cursor: crosshair;
 
     /* filter: blur(2px); */
 
-    opacity: 80%;
+    opacity: 60%;
 }
 
 .divider {
@@ -159,7 +160,7 @@ cursor: crosshair;
     font-family: "eb-garamond", serif;
 font-weight: 500;
 font-style: normal;
-font-size: 20px;
+font-size: 16px;
 /* color: white; */
 padding: 0.5px;
 /* background: #EEDEC5; */
