@@ -2,12 +2,7 @@
 
 let cnv; 
 let size = 100;
-let exclist = document.getElementById("exclist");
-let exercise = document.getElementById("exercises");
-let project = document.getElementById("projects");
 
-
-let prolist = document.getElementById("prolist");
 
 
 
@@ -53,12 +48,3 @@ function keyPressed() {
 // function mousePressed() {
 //     clear();}
 
-function openExc() {
-    exclist.classList.toggle("appear");
-
-    }
-
-    function openPro() {
-        prolist.classList.toggle("appear");
-    
-        }
