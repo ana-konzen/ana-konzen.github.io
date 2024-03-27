@@ -153,8 +153,8 @@ font-size: 14px;
 
 #abCont {
     position: fixed;
-    top: 150px;
-    left: 50px;
+    top: 120px;
+    left: 60px;
     width: 350px;
 }
 
@@ -170,6 +170,8 @@ font-size: 14px;
     font-weight: 500;
     font-style: italic;
     font-size: 24px;
+    position: relative;
+    left: -10px;
 }
 
 .dates {
@@ -188,8 +190,8 @@ font-size: 14px;
 
 #conCont {
     position: fixed;
-    top: 130px;
-    left: 50px;
+    top: 120px;
+    left: 60px;
     width: 350px;
 }
 #conCont p {
@@ -204,4 +206,6 @@ font-size: 14px;
     font-weight: 500;
     font-style: italic;
     font-size: 24px;
+    position: relative;
+    left: -10px;
 }
