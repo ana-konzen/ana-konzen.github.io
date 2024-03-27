@@ -156,6 +156,8 @@ font-size: 14px;
     top: 120px;
     left: 60px;
     width: 350px;
+cursor: crosshair;
+
 }
 
 #abCont p {
@@ -186,6 +188,8 @@ font-size: 14px;
     font-size: 18px;
     text-decoration: underline;
     color: black;
+    position: relative;
+    left: -10px;
 }
 
 #conCont {
@@ -193,6 +197,8 @@ font-size: 14px;
     top: 120px;
     left: 60px;
     width: 350px;
+cursor: crosshair;
+
 }
 #conCont p {
     font-family: "eb-garamond", serif;
