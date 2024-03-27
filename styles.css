@@ -1,7 +1,6 @@
 body {
     background-color: #EEDEC5;
 margin: 0;
-user-select: none;
 }
 
 #menu {
@@ -14,6 +13,8 @@ user-select: none;
     left: 270px;
     justify-content: space-between;
 cursor: crosshair;
+user-select: none;
+
 
 
 
@@ -82,6 +83,8 @@ font-style: italic;
     position: fixed;
     user-select: none;
     text-align: left;
+user-select: none;
+
     
 }
 
@@ -103,6 +106,8 @@ font-style: italic;
     font-family: sans-serif;
     justify-content: space-between;
     font-size: 14px;
+user-select: none;
+
 }
 
 #proCont {
@@ -200,11 +205,12 @@ cursor: crosshair;
 cursor: crosshair;
 
 }
-#conCont p {
+#conCont p, a {
     font-family: "eb-garamond", serif;
     font-weight: 300;
     font-style: normal;
     font-size: 20px;
+    color: black;
 }
 
 #conCont  h1 {
