@@ -60,9 +60,13 @@ font-style: normal;
     position: fixed;
 }
 
-#projects {top: 0px;
+#projects {top: -40px;
 position: absolute;
-left: 0;}
+left: -10px;
+font-family: "eb-garamond", serif;
+font-weight: 500;
+font-style: italic;
+font-size: 40px;}
 
 #circle {
     width: 500px;
@@ -108,8 +112,9 @@ a {
 
 
 #main-header{
-    font-family: edita, serif;
-    font-weight: 700;
+    font-family: "eb-garamond", serif;
+    font-weight: 500;
+    font-style: italic;
     left: 5vw;
     top: 15vh;
     font-style: italic;

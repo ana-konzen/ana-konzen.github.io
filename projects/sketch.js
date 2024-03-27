@@ -4,6 +4,7 @@ let cnv;
 let exclist = document.getElementById("exclist");
 let exercise = document.getElementById("exercises");
 let project = document.getElementById("projects");
+let size = 100;
 
 
 let prolist = document.getElementById("prolist");
@@ -34,10 +35,20 @@ function draw() {
         stroke(2, 50, 46);
     }
 
-    ellipse(mouseX, mouseY, 100, 100);
+    ellipse(mouseX, mouseY, size, size);
 
 
 }
+
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+      size -=10;
+    } else if (keyCode === RIGHT_ARROW) {
+      size +=10;
+    } else if(keyCode === RETURN){
+        clear();
+    }
+  }
 
 // function mousePressed() {
 //     clear();}
