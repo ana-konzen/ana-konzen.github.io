@@ -3,6 +3,10 @@
 let cnv; 
 let size = 100;
 
+let opacity = 255;
+
+console.log(proCont.classList.contains("appear"));
+
 
 
 
@@ -20,9 +24,16 @@ function windowResized() {
 
 function draw() {
 
+  if (proCont.classList.contains("appear")) {
+    opacity = 10;
+  } else {
+    opacity = 255;
+  }
+  
+
     // fill(114, 47, 55);
     noFill();
-    stroke(114, 47, 55);
+    stroke(114, 47, 55, opacity);
     strokeWeight(4);
     filter(BLUR, 2);
 

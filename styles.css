@@ -112,12 +112,11 @@ user-select: none;
 
 #proCont {
     position: fixed;
-    /* background: white; */
     width: 100vw;
-    height: 70vh;
+    height: 60vh;
     left: 50vw;
     transform: translateX(-50%);
-    bottom: 100px;
+    top: 200px;
     overflow: scroll;
 cursor: crosshair;
 
@@ -145,7 +144,18 @@ cursor: crosshair;
 }
 
 .thumbnail:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05);*/
+
+    /* filter: blur(2px); */
+
+    opacity: 80%;
+}
+
+.divider {
+    height: 50px;
+    width: 2px;
+    /* background: black; */
+    position: absolute;
 }
 
 .caption {
@@ -153,12 +163,16 @@ cursor: crosshair;
     font-family: "eb-garamond", serif;
 font-weight: 500;
 font-style: normal;
-font-size: 14px;
+font-size: 20px;
+/* color: white; */
+padding: 0.5px;
+/* background: #EEDEC5; */
+
 }
 
 #abCont {
     position: fixed;
-    top: 120px;
+    top: 150px;
     left: 60px;
     width: 350px;
 cursor: crosshair;
@@ -199,7 +213,7 @@ cursor: crosshair;
 
 #conCont {
     position: fixed;
-    top: 120px;
+    top: 150px;
     left: 60px;
     width: 350px;
 cursor: crosshair;
