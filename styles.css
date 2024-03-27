@@ -39,7 +39,7 @@ canvas {
 
     ul {
         list-style-type: none;
-        display: none;
+        /* display: none; */
 
        
       }
@@ -51,8 +51,8 @@ canvas {
 
 h2 {
     color: black;
-    font-family: edita, serif;
-    font-weight: 700;
+    font-family: "eb-garamond", serif;
+font-weight: 500;
 font-style: normal;
     width: 120px;
     padding: 5px;
@@ -83,7 +83,7 @@ to{filter: blur(20px);}
 
 
 
-.big h2:hover {filter: blur(2px);
+ h2:hover {filter: blur(2px);
     cursor: crosshair;}
 
 a {
@@ -96,13 +96,14 @@ a {
     transition: color 0.5s;
 }
 
-.big a:hover {color: white;
+a:hover {color: white;
     }
 
 
 #main-header{
-    font-family: edita, serif;
-    font-weight: 700;
+    font-family: "eb-garamond", serif;
+font-weight: 500;
+font-style: italic;
     left: 5vw;
     top: 15vh;
     font-style: italic;
@@ -124,15 +125,28 @@ a {
 #exclist {
     position: fixed;
     top: 15vh;
-    user-select: none;
+    /* user-select: none; */
 
 }
 
 #prolist {
     position: fixed;
     top: 30vh;
-    user-select: none;
+    /* user-select: none; */
 
+}
+
+
+#instructions {
+    position: fixed;
+    display: flex;
+    width: calc(100vw - 100px);
+    left: 50vw;
+    transform: translateX(-50%);
+    bottom: 20px;
+    font-family: sans-serif;
+    justify-content: space-between;
+    font-size: 14px;
 }
 
 

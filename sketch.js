@@ -34,7 +34,7 @@ function draw() {
         stroke(2, 50, 46);
     }
 
-    ellipse(mouseX, mouseY, 200, 200);
+    ellipse(mouseX, mouseY, 100, 100);
 
 
 }
