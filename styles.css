@@ -83,13 +83,9 @@ font-style: italic;
     position: fixed;
     user-select: none;
     text-align: left;
-user-select: none;
+cursor: pointer;
 
     
-}
-
-#main-header:hover {
-    cursor: crosshair;
 }
 
 

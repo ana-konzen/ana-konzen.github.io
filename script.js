@@ -6,6 +6,8 @@ let projects = document.getElementById("projects");
 let about = document.getElementById("about");
 let contact = document.getElementById("contact");
 
+let mainheader = document.getElementById("main-header");
+
 
 
 
@@ -87,5 +89,9 @@ captions[2].innerHTML = "Loop App | UX Design | 2023";
 
 thumbnails[1].addEventListener('click', function (){
     window.location.href = '/illustration/refinement';
+})
+
+mainheader.addEventListener('click', function (){
+    window.location.href = '/';
 })
 
