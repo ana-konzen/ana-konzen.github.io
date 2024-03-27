@@ -65,7 +65,7 @@ let thumbnails = document.querySelectorAll(".thumbnail");
 let captions = document.querySelectorAll(".caption");
 
 
-thumbnails[0].style.backgroundImage = "url('test.png')";
+thumbnails[0].style.backgroundImage = "url('malba.png')";
 captions[0].innerHTML = "MALBA | Generative Identity | 2023"
 
 thumbnails[1].style.backgroundImage = "url('illustration.png')";
