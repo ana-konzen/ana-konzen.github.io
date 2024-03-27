@@ -1,0 +1,424 @@
+{
+  "artworks": [
+    {
+      "id": "Hannah Black",
+      "keywords": [
+        "curiosity",
+        "interested",
+        "perplexed",
+        "confused",
+        "intrigued",
+        "fascinated"
+      ],
+      "colors": [
+        "#D2A67E",
+        "#8D5524",
+        "#3C1F1E",
+        "#C8BFB2",
+        "#763C28"
+      ],
+      "shape": [
+        "circular",
+        "organic"
+      ],
+      "styles": [
+        "minimalist",
+        "constrained",
+        "classic"
+      ],
+      "contrast": [
+        "low"
+      ]
+    },
+    {
+      "id": "Vincent van Gogh",
+      "keywords": [
+        "enchanted",
+        "fascinated",
+        "inspired",
+        "happy",
+        "beautiful",
+        "mesmerized"
+      ],
+      "styles": [
+        "expressionist",
+        "classic",
+        "chaotic"
+      ],
+      "colors": [
+        "#354E7E",
+        "#486C7A",
+        "#F4E3A1",
+        "#1E3A3A",
+        "#D2B24C"
+      ],
+      "shape": [
+        "organic",
+        "geometric"
+      ],
+      "contrast": [
+        "high"
+      ]
+    },
+    {
+      "id": "Jean-Michel Basquiat",
+      "keywords": [
+        "confused",
+        "aggressive",
+        "chaotic",
+        "uneasy",
+        "bold",
+        "intense"
+      ],
+      "contrast": [
+        "high" 
+      ],
+      "styles": [
+        "expressionist",
+        "chaotic",
+        "avant-garde"
+      ],
+      "shape": [
+        "text",
+        "geometric"
+      ],
+      "colors": [
+        "#0091EA",
+        "#F44336",
+        "#FFEB3B",
+        "#E91E63",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": "Andy Warhol",
+      "contrast": [
+        "high"
+      ],
+      "styles": [
+        "avant-garde",
+        "classic",
+        "maximalist"
+      ],
+      "colors": [
+        "#7FCFCA",
+        "#FCEA2B",
+        "#57ACEC",
+        "#EC3B83",
+        "#383D47"
+      ],
+      "shape": [
+        "geometric",
+        "organic"
+      ],
+      "keywords": [
+        "interested",
+        "happy",
+        "amused",
+        "attractive",
+        "lively",
+        "radiant"
+      ]
+    },
+    {
+      "id": "Diane Nguyen",
+      "contrast": [
+        "high"
+      ],
+      "styles": [
+        "avant-garde",
+        "expressionist",
+        "chaotic"
+      ],
+      "shape": [
+        "organic",
+        "geometric"
+      ],
+      "colors": [
+        "#0F0C29",
+        "#610C1D",
+        "#DAA520",
+        "#056674",
+        "#101820"
+      ],
+      "keywords": [
+        "enchanted",
+        "mesmerizing",
+        "happy",
+        "beautiful",
+        "impressed",
+        "fascinated"
+      ]
+    },
+    {
+      "id": "Barbara Kruger",
+      "contrast": [
+        "high"
+      ],
+      "shape": [
+        "text",
+        "rectangular"
+      ],
+      "colors": [
+        "#000000",
+        "#FFFFFF",
+        "#E50000",
+        "#7A7A7A",
+        "#C0C0C0"
+      ],
+      "keywords": [
+        "provoked",
+        "thoughtful",
+        "interested",
+        "complex",
+        "reflective",
+        "questioning"
+      ],
+      "styles": [
+        "avant-garde",
+        "minimalist",
+        "constrained"
+      ]
+    },
+    {
+      "id": "Stella Zhong",
+      "keywords": [
+        "bored",
+        "uninterested",
+        "dull",
+        "confused",
+        "perplexed",
+        "uncertain"
+      ],
+      "contrast": [
+        "low"
+      ],
+      "styles": [
+        "minimalist",
+        "constrained",
+        "classic"
+      ],
+      "shape": [
+        "geometric",
+        "rectangular"
+      ],
+      "colors": [
+        "#D17A5B",
+        "#839791",
+        "#C4A689",
+        "#FAFAFA",
+        "#5C5346"
+      ]
+    },
+    {
+      "id": "Cecily Brown",
+      "shape": [
+        "organic",
+        "geometric"
+      ],
+      "styles": [
+        "expressionist",
+        "chaotic",
+        "avant-garde"
+      ],
+      "keywords": [
+        "happy",
+        "colorful",
+        "bright",
+        "cheerful",
+        "inspired",
+        "lively"
+      ],
+      "colors": [
+        "#FF6A00",
+        "#D93026",
+        "#FFFFFF",
+        "#074E29",
+        "#F2E205"
+      ],
+      "contrast": [
+        "high"
+      ]
+    },
+    {
+      "id": "Cindy Sherman",
+      "styles": [
+        "avant-garde",
+        "expressionist",
+        "chaotic"
+      ],
+      "shape": [
+        "organic",
+        "geometric"
+      ],
+      "contrast": [
+        "high"
+      ],
+      "keywords": [
+        "amused",
+        "happy",
+        "playful",
+        "silly",
+        "fun",
+        "joyful"
+      ],
+      "colors": [
+        "#FFA500",
+        "#005A9C",
+        "#804000",
+        "#FFFFE0",
+        "#8B572A"
+      ]
+    },
+    {
+      "id": "Gustav Klimt",
+      "contrast": [
+        "high"
+      ],
+      "keywords": [
+        "enchanted",
+        "fascinated",
+        "impressed",
+        "moved",
+        "positive",
+        "stunning"
+      ],
+      "styles": [
+        "avant-garde",
+        "classic",
+        "maximalist"
+      ],
+      "shape": [
+        "geometric",
+        "organic"
+      ],
+      "colors": [
+        "#DAA520",
+        "#C0C0C0",
+        "#80461B",
+        "#086A87",
+        "#082567"
+      ]
+    },
+    {
+      "id": "Edgar Degas",
+      "shape": [
+        "organic",
+        "geometric"
+      ],
+      "styles": [
+        "expressionist",
+        "classic",
+        "chaotic"
+      ],
+      "contrast": [
+        "low"
+      ],
+      "colors": [
+        "#d3996b",
+        "#9e6034",
+        "#bc9a7f",
+        "#467f73",
+        "#677a34"
+      ],
+      "keywords": [
+        "happy",
+        "joy",
+        "relaxed",
+        "calm",
+        "content",
+        "enchanted"
+      ]
+    },
+    {
+      "id": "Claude Monet",
+      "colors": [
+        "#3B7F10",
+        "#DAA520",
+        "#1E90FF",
+        "#C0C0C0",
+        "#8B4513"
+      ],
+      "keywords": [
+        "happy",
+        "joyful",
+        "contented",
+        "friendly",
+        "nice",
+        "cheerful"
+      ],
+      "contrast": [
+        "high"
+      ],
+      "shape": [
+        "organic",
+        "geometric"
+      ],
+      "styles": [
+        "classic",
+        "expressionist",
+        "maximalist"
+      ]
+    },
+    {
+      "id": "Carol Rama",
+      "shape": [
+        "geometric",
+        "text"
+      ],
+      "keywords": [
+        "amused",
+        "happy",
+        "playful",
+        "relaxed",
+        "silly",
+        "whimsical"
+      ],
+      "colors": [
+        "#F4DBC8",
+        "#F2E8CF",
+        "#EABFB3",
+        "#D9A690",
+        "#AA4A44"
+      ],
+      "contrast": [
+        "low"
+      ],
+      "styles": [
+        "avant-garde",
+        "expressionist",
+        "constrained"
+      ]
+    },
+    {
+      "id": "Rebecca Ackroyd",
+      "contrast": [
+        "low"
+      ],
+      "keywords": [
+        "unsettled",
+        "confused",
+        "intrigued",
+        "perplexed",
+        "fascinated",
+        "curious"
+      ],
+      "styles": [
+        "avant-garde",
+        "expressionist",
+        "constrained"
+      ],
+      "colors": [
+        "#C04048",
+        "#D9A99B",
+        "#EAE3D2",
+        "#9C8C7C",
+        "#FFFFFF"
+      ],
+      "shape": [
+        "organic",
+        "geometric"
+      ]
+    }
+  ]
+}

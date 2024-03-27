@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flash Art Generator</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <div id = "form">
+
+        <p>artist first name <input type = "text" id ="artistName" name="artistName"></p>
+        <p>artist last name <input type = "text" id ="lastName" name="lastName"></p>
+
+        <p>upload image <input type = "file" id ="myFile" name="artistImage" accept="image/png, image/jpeg"></p>
+        <button id="submit">submit</button>
+        <p id = 'errorMessage'>oops! please make sure all fields <br> are filled correctly</p>
+
+
+        <img id="myImage" src="">
+
+        <div id="myContainer"></div>
+        <div id="buttonContainer"></div>
+
+        
+
+    </div>
+    
+
+           
+        <!-- <script src="script.js"></script> -->
+        <script src="p5.min.js"></script>
+        <!-- <script src="graineffect.js"></script> -->
+        <script src="spectral.min.js"></script>
+        <script src="p5.brush.js"></script>
+        <script src="sketch.js"></script>
+        <script src="script.js"></script>
+
+    
+    </body>
+</html>

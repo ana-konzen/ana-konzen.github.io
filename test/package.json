@@ -1,0 +1,21 @@
+{
+  "name": "ai-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "openai": "^4.28.4",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.6.1"
+  }
+}
