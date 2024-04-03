@@ -79,9 +79,6 @@ font-style: italic;
 }
 
 
-
-
-
 #instructions {
     display: none;
 
@@ -297,7 +294,7 @@ cursor: crosshair;
     
     #instructions {
         position: fixed;
-        /* display: flex; */
+        display: block;
         width: 300px;
         line-height: 20px;
         right: 50px;
