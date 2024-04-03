@@ -95,6 +95,8 @@ font-style: italic;
     transform: translateX(-50%);
     bottom: 150px;
     overflow-x: scroll;
+    overflow-y: hidden;
+
 
 }
 
