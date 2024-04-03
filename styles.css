@@ -153,14 +153,14 @@ cursor: crosshair;
     font-family: "eb-garamond", serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 #abCont h1 {
     font-family: "eb-garamond", serif;
     font-weight: 500;
     font-style: italic;
-    font-size: 24px;
+    font-size: 22px;
     position: relative;
     left: -10px;
 }
@@ -174,7 +174,7 @@ cursor: crosshair;
     font-family: "eb-garamond", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: underline;
     color: black;
     position: relative;
@@ -192,7 +192,7 @@ cursor: crosshair;
     font-family: "eb-garamond", serif;
     font-weight: 300;
     font-style: normal;
-    font-size: 20px;
+    font-size: 16px;
     color: black;
 }
 
@@ -200,7 +200,7 @@ cursor: crosshair;
     font-family: "eb-garamond", serif;
     font-weight: 500;
     font-style: italic;
-    font-size: 24px;
+    font-size: 22px;
     position: relative;
     left: -10px;
 }
