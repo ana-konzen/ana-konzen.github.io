@@ -1,6 +1,7 @@
 body {
     background-color: #EEDEC5;
 margin: 0;
+overflow: hidden;
 }
 
 #menu {
@@ -103,7 +104,7 @@ user-select: none;
     left: 50vw;
     transform: translateX(-50%);
     top: 200px;
-    overflow: scroll;
+    overflow-x: scroll;
 
 }
 
