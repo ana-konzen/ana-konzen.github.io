@@ -5,19 +5,14 @@ margin: 0;
 
 #menu {
     /* background: white; */
-    width: 500px;
+    width: 300px;
     height: 50px;
     display: flex;
     position: fixed;
-    top: 45px;
-    left: 270px;
+    top: 100px;
+    left: 50px;
     justify-content: space-between;
-cursor: crosshair;
-user-select: none;
-
-
-
-
+    user-select: none; 
 }
 
 #menu a {
@@ -25,14 +20,9 @@ user-select: none;
     font-family: "eb-garamond", serif;
 font-weight: 500;
 font-style: normal;
-font-size: 18px;
+font-size: 22px;
 transition: 500ms;
-cursor: pointer;
 
-}
-
-#menu a:hover {
-    color: white;
 }
 
 canvas {
@@ -83,7 +73,6 @@ font-style: italic;
     position: fixed;
     user-select: none;
     text-align: left;
-cursor: pointer;
 
     
 }
@@ -115,7 +104,6 @@ user-select: none;
     transform: translateX(-50%);
     top: 200px;
     overflow: scroll;
-cursor: crosshair;
 
 }
 
@@ -137,16 +125,8 @@ cursor: crosshair;
     /* box-shadow: 5px 5px 10px rgb(18, 18, 18); */
     top: 50px;
     background-size: cover;
-    cursor: pointer;
 }
 
-.thumbnail:hover {
-    /* transform: scale(1.05);*/
-
-    /* filter: blur(2px); */
-
-    opacity: 60%;
-}
 
 .divider {
     height: 50px;
@@ -213,7 +193,6 @@ cursor: crosshair;
     top: 150px;
     left: 60px;
     width: 350px;
-cursor: crosshair;
 
 }
 #conCont p, a {
@@ -231,4 +210,245 @@ cursor: crosshair;
     font-size: 24px;
     position: relative;
     left: -10px;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+
+
+    #menu {
+        width: 500px;
+        height: 50px;
+        display: flex;
+        position: fixed;
+        top: 45px;
+        left: 270px;
+        justify-content: space-between;
+    cursor: crosshair;
+    user-select: none; 
+    }
+    
+    #menu a {
+        color: black;
+        font-family: "eb-garamond", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    transition: 500ms;
+    cursor: pointer;
+    
+    }
+    
+    #menu a:hover {
+        color: white;
+    }
+    
+    canvas {
+        display: block;
+        position: fixed; 
+        left: 0;
+        top: 0;
+        z-index: -2;
+      }
+    
+    
+    
+    
+    
+    
+    #circle {
+        width: 500px;
+        height: 500px;
+        background: #722F37;
+        /* border: solid 1px black; */
+        border-radius: 50%;
+        position: fixed;
+        filter: blur(1px);
+        top: 10vh;
+        left: 10vw;
+        animation: blurring 3s infinite alternate;
+        transition: 2s;
+        
+    }
+    
+    @keyframes blurring {
+    to{filter: blur(20px);}
+    }
+    
+    
+    
+    
+    
+    #main-header{
+        font-family: "eb-garamond", serif;
+    font-weight: 500;
+    font-style: italic;
+        left: 50px;
+        top: 0px;
+        font-style: italic;
+        color: black;
+        font-size:40px;
+        position: fixed;
+        user-select: none;
+        text-align: left;
+    cursor: pointer;
+    
+        
+    }
+    
+    
+    
+    
+    
+    #instructions {
+        position: fixed;
+        /* display: flex; */
+        width: 300px;
+        line-height: 20px;
+        right: 50px;
+        bottom: 20px;
+        font-family: sans-serif;
+        text-align: right;
+        justify-content: space-between;
+        font-size: 14px;
+    user-select: none;
+    
+    }
+    
+    #proCont {
+        position: fixed;
+        width: 100vw;
+        height: 60vh;
+        left: 50vw;
+        transform: translateX(-50%);
+        top: 200px;
+        overflow: scroll;
+    cursor: crosshair;
+    
+    }
+    
+    .disappear {
+        display: none;
+    
+    }
+    
+    .appear {
+        display: block;
+    
+    }
+    
+    .thumbnail {
+        /* background: black; */
+        border: solid black 1px;
+        position: absolute;
+        transition: 500ms;
+        /* box-shadow: 5px 5px 10px rgb(18, 18, 18); */
+        top: 50px;
+        background-size: cover;
+        cursor: pointer;
+    }
+    
+    .thumbnail:hover {
+        /* transform: scale(1.05);*/
+    
+        /* filter: blur(2px); */
+    
+        opacity: 60%;
+    }
+    
+    .divider {
+        height: 50px;
+        width: 2px;
+        /* background: black; */
+        position: absolute;
+    }
+    
+    .caption {
+        position: absolute;
+        font-family: "eb-garamond", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    /* color: white; */
+    padding: 0.5px;
+    /* background: #EEDEC5; */
+    
+    }
+    
+    #abCont {
+        position: fixed;
+        top: 150px;
+        left: 60px;
+        width: 350px;
+    cursor: crosshair;
+    
+    }
+    
+    #abCont p {
+        font-family: "eb-garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 20px;
+    }
+    
+    #abCont h1 {
+        font-family: "eb-garamond", serif;
+        font-weight: 500;
+        font-style: italic;
+        font-size: 24px;
+        position: relative;
+        left: -10px;
+    }
+    
+    .dates {
+        font-size: 17px;
+    
+    }
+    
+    #abCont a {
+        font-family: "eb-garamond", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 18px;
+        text-decoration: underline;
+        color: black;
+        position: relative;
+        left: -10px;
+    }
+    
+    #conCont {
+        position: fixed;
+        top: 150px;
+        left: 60px;
+        width: 350px;
+    cursor: crosshair;
+    
+    }
+    #conCont p, a {
+        font-family: "eb-garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 20px;
+        color: black;
+    }
+    
+    #conCont  h1 {
+        font-family: "eb-garamond", serif;
+        font-weight: 500;
+        font-style: italic;
+        font-size: 24px;
+        position: relative;
+        left: -10px;
+    }
+
+
+
+
+
+
+
+
+
 }
