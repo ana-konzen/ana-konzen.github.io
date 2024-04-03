@@ -20,8 +20,8 @@ let indexSlider, seedSlider;
 var particles = [];
 
 let darkPalette = ['#392217', '#9E3900', '#6A7021', '#245705', '#827D0A', '#7A0367', '#08424F', '#6E5525', '#9C0F29', '#880D0D', '#301404'];
-let dimPalette = ['#84513B', '#C55F33', '#8D9632', '#3E9F1B', '#B6AF09', '#AA2B96', '#258DA4', '#AE8943', '#CF324E', '#C21313', '#612D22'];
-let brightPalette = ['#B77457', '#FD996E', '#CFDA57', '#B3E95B', '#E2DA08', '#FA82E7', '#68E3FF', '#F7DBA6', '#FF6B86', '#EF1313', '#C69D8C'];
+let dimPalette = ['#84513B', '#C55F33', '#8D9632', '#4A9D2D', '#B6AF09', '#AA2B96', '#258DA4', '#AE8943', '#CF324E', '#C21313', '#612D22'];
+let brightPalette = ['#B77457', '#FD996E', '#CFDA57', '#C0DC92', '#E2DA08', '#FA82E7', '#68E3FF', '#F7DBA6', '#FF6B86', '#EF1313', '#C69D8C'];
 let palette = [];
 
 let zoff = 0;
@@ -159,34 +159,42 @@ function draw() {
         myLine.endPlot(90, 20);
 
     brush.set("rotring", color1, strokeW);
-    brush.plot(myLine, 100, 300, 1);
-    let points = myLine.genPol(100, 300);
+    xpos = random(50, 100);
+    ypos = random(200, 300);
+    brush.plot(myLine, xpos, ypos, 1);
+    let points = myLine.genPol(xpos, ypos);
+
+    let freshness = floor(map(pFresh, 1, 10, 1, 7));
+    console.log(freshness);
 
     
     console.log(points);
     // brush.polygon(points.a);
+
+    xpos = random(100);
+    ypos = random(50);
 
     let myLine2 = new brush.Plot('curve');
     myLine2.addSegment(ang4, random(100, 200), strokeW / 2);
     myLine2.addSegment(ang5, random(100, 200), strokeW / 2);
     myLine2.addSegment(ang6, random(100, 200), strokeW / 2);
     brush.set("rotring", color2, strokeW);
-    brush.plot(myLine2, 0, 0, 1);
+    brush.plot(myLine2, xpos, ypos, 1);
     // brush.plot(myLine2, -30, -20, 1);
-    let points2 = myLine2.genPol(0, 0);
+    let points2 = myLine2.genPol(xpos, ypos);
 
     let myDot = new brush.Plot('curve');
         myDot.addSegment(ang1, 1, dotSize);
         myDot.endPlot(ang1, dotSize/2);
-        for(let i = 1; i < points.vertices.length+1; i++){
+        for(let i = 1; i < points.vertices.length+1; i+=freshness){
             brush.plot(myDot, points.vertices[points.vertices.length-i].x + 25, points.vertices[points.vertices.length-i].y - 25, 1);
         }
     let lineLength = map(pHeart, 60, 130, 10, 130);
-    let myLines = new brush.Plot('segment');
-        myLines.addSegment(60, lineLength, 3);
-        myLines.endPlot(0, 5);
+    let myLines = new brush.Plot('curve');
+        myLines.addSegment(30, lineLength, 5);
+        myLines.endPlot(0, 2);
     brush.set("rotring", color1, strokeW/2);
-    for(let i = 0; i < points2.vertices.length; i++){
+    for(let i = 0; i < points2.vertices.length; i+=freshness){
         brush.plot(myLines, points2.vertices[i].x, points2.vertices[i].y, 1);
     }
     // brush.plot(myLines, points.vertices[points.vertices.length-2].x - 60, points.vertices[points.vertices.length-2].y + 60, 1);
@@ -249,11 +257,11 @@ function analyzeData(index){
         opacity = 100;
     }
     else if(pStrength == 'Moderate'){
-        strokeW = 20;
+        strokeW = 25;
         opacity = 50;
     }
     else if(pStrength == 'Delicate'){
-        strokeW = 5;
+        strokeW = 10;
         opacity = 20;
     }
 
@@ -273,11 +281,11 @@ function analyzeData(index){
     } 
     else if(pSound == 'Moderate'){
         circleSize = 50;
-        dotSize = 10;
+        dotSize = 15;
     }
     else if(pSound == 'Quiet'){
         circleSize = 20;
-        dotSize = 5;
+        dotSize = 10;
     }
 
     if(pLight == 'Bright'){
