@@ -83,17 +83,7 @@ font-style: italic;
 
 
 #instructions {
-    position: fixed;
-    /* display: flex; */
-    width: 300px;
-    line-height: 20px;
-    right: 50px;
-    bottom: 20px;
-    font-family: sans-serif;
-    text-align: right;
-    justify-content: space-between;
-    font-size: 14px;
-user-select: none;
+    display: none;
 
 }
 
@@ -103,7 +93,7 @@ user-select: none;
     height: 60vh;
     left: 50vw;
     transform: translateX(-50%);
-    top: 200px;
+    bottom: 150px;
     overflow-x: scroll;
 
 }
@@ -152,7 +142,7 @@ padding: 0.5px;
     position: fixed;
     top: 150px;
     left: 60px;
-    width: 350px;
+    width: 300px;
 cursor: crosshair;
 
 }
@@ -193,7 +183,7 @@ cursor: crosshair;
     position: fixed;
     top: 150px;
     left: 60px;
-    width: 350px;
+    width: 300px;
 
 }
 #conCont p, a {
