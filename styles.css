@@ -90,7 +90,7 @@ font-style: italic;
 #proCont {
     position: fixed;
     width: 100vw;
-    height: 60vh;
+    height: 500px;
     left: 50vw;
     transform: translateX(-50%);
     top: 150px;
