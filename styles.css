@@ -93,7 +93,7 @@ font-style: italic;
     height: 60vh;
     left: 50vw;
     transform: translateX(-50%);
-    bottom: 150px;
+    top: 200px;
     overflow-x: scroll;
     overflow-y: hidden;
 
