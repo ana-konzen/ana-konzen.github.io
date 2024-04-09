@@ -68,15 +68,30 @@ function setup() {
         ySlider2 = createSlider(-100, 100, 0, 1);
         ySlider2.position(30, 400);
         ySlider2.size(200);
+        // console.log(seedSlider.input);
+
         positionCanvas();
         brush.load();
+        seedSlider.input(valuechanged);
+        indexSlider.input(valuechanged);
+        xSlider.input(valuechanged);
+        xSlider2.input(valuechanged);
+        ySlider.input(valuechanged);
+        ySlider2.input(valuechanged);
+        // valuechanged();
     }
+
+function valuechanged() {
+    redraw();
+
+}
 
 function windowResized(){
     positionCanvas();
 }
 
 function draw() {
+    noLoop();
     background('#faf6f0');
     // noLoop();
     brush.noField();
