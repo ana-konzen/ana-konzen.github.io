@@ -9,13 +9,14 @@ let cnv;
 let bleed;
 let opacity;
 
+
 let productName = document.getElementById("name");
 
 
 let dotSize;
 
 let pName, pStrength, pNotes, pFamily1, pFamily2, pFresh, pLight, pSound, pHeart, pInside, pSillage;
-let indexSlider, seedSlider;
+let indexSlider, seedSlider, xSlider, xSlider2, ySlider, ySlider2;
 
 var particles = [];
 
@@ -47,13 +48,26 @@ function setup() {
             // console.log(data[i]);
         }
         angleMode(DEGREES);
-        cnv = createCanvas(450, 800, WEBGL);
+        cnv = createCanvas(450, 750, WEBGL);
         seedSlider = createSlider(61, 561, 0, 50);
-        seedSlider.position(10, 10);
+        seedSlider.position(30, 140);
         seedSlider.size(200);
         indexSlider = createSlider(0, keys.length - 1, 0, 1);
-        indexSlider.position(10, 60);
+        indexSlider.position(30, 60);
         indexSlider.size(200);
+        xSlider = createSlider(-100, 100, 0, 1);
+        xSlider.position(30, 230);
+        xSlider.size(200);
+        xSlider2 = createSlider(-100, 100, 0, 1);
+        xSlider2.position(30, 270);
+        xSlider2.size(200);
+
+        ySlider = createSlider(-100, 100, 0, 1);
+        ySlider.position(30, 360);
+        ySlider.size(200);
+        ySlider2 = createSlider(-100, 100, 0, 1);
+        ySlider2.position(30, 400);
+        ySlider2.size(200);
         positionCanvas();
         brush.load();
     }
@@ -63,7 +77,8 @@ function windowResized(){
 }
 
 function draw() {
-    background('white');
+    background('#faf6f0');
+    // noLoop();
     brush.noField();
     // brush.field("curved");
     // brush.refreshField(frameCount / 10);
@@ -75,10 +90,18 @@ function draw() {
     analyzeData(index);
     productName.innerHTML = pName;
 
+    let xoffset = xSlider.value();
+    let xoffset2 = xSlider2.value();
+
+    let yoffset = ySlider.value();
+    let yoffset2 = ySlider2.value();
+
+
+
 
     fill('black');
     noStroke();
-    scale(1.2);
+    scale(1.3);
     // textAlign(CENTER);
     // text(pName, width/2, 100);
     // textSize(20);
@@ -90,10 +113,10 @@ function draw() {
 
     // brush.rect(-width/2, -height/2, width, height)
 
-    // brush.noFill();
+    // // brush.noFill();
 
-    let numCircles = 3;
-    let ringDistance = 0.5;
+    // let numCircles = 3;
+    // let ringDistance = 0.5;
 
     // brush.fill(color1, opacity);
     // brush.bleed(bleed);
@@ -102,15 +125,15 @@ function draw() {
         // brush.circle(0, 0, circleSize);
     
 
-    let lineN = 20;
-    let radius = circleSize*2;
-    let radius2 = circleSize;
-    let radius3 = circleSize*3;
-    let lineWidth = 20;
-    let angOffset = 0; // set by heartrate
+    // let lineN = 20;
+    // let radius = circleSize*2;
+    // let radius2 = circleSize;
+    // let radius3 = circleSize*3;
+    // let lineWidth = 20;
+    // let angOffset = 0; // set by heartrate
 
-    brush.set("rotring", color1, strokeW);
-    offset = random(50);
+    // brush.set("rotring", color1, strokeW);
+    // offset = random(50);
 
 
     // for(let i = 0; i < pNotes; i++){
@@ -159,20 +182,20 @@ function draw() {
         myLine.endPlot(90, 20);
 
     brush.set("rotring", color1, strokeW);
-    xpos = random(50, 100);
-    ypos = random(200, 300);
+    xpos = random(50, 100) + xoffset;
+    ypos = random(200, 300) + yoffset;
     brush.plot(myLine, xpos, ypos, 1);
     let points = myLine.genPol(xpos, ypos);
 
     let freshness = floor(map(pFresh, 1, 10, 1, 7));
-    console.log(freshness);
+    // console.log(freshness);
 
     
-    console.log(points);
+    // console.log(points);
     // brush.polygon(points.a);
 
-    xpos = random(100);
-    ypos = random(50);
+    xpos = random(100) + xoffset2;
+    ypos = random(50) + yoffset2;
 
     let myLine2 = new brush.Plot('curve');
     myLine2.addSegment(ang4, random(100, 200), strokeW / 2);
@@ -207,24 +230,7 @@ function draw() {
     // brush.plot(myLine, -55, 20 - distance, 1);
 
 
-        
-
-
-
-
-    noFill();
-
-
-    stroke(color1);
-    let pw = 500;
-    let ph = 800;
-    strokeWeight(1);
-    stroke('black');
-    rect(-width/2, -height/2, width, height);
-    strokeWeight(strokeW);
-    let cw = 200;
-    let ch = 300;
-    // ellipse(0, 0, cw, ch);
+       
 
     }
 
@@ -265,7 +271,7 @@ function analyzeData(index){
         opacity = 20;
     }
 
-    console.log(pSound);
+    // console.log(pSound);
 
     if (pSillage == 'Strong'){
         bleed = 0.4;
