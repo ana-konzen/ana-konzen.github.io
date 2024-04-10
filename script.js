@@ -92,9 +92,14 @@ let captions = document.querySelectorAll(".caption");
 //     window.location.href = '/illustration/refinement';
 // })
 
-// mainheader.addEventListener('click', function (){
-//     window.location.href = '/';
-// })
+mainheader.addEventListener('click', function (){
+    // window.location.href = '/';
+
+    conCont.classList.remove("appear");
+    proCont.classList.remove("appearFlex");
+    proCont.classList.add("disappear");
+    abCont.classList.remove("appear"); 
+})
 
 
 
