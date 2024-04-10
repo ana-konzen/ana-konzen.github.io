@@ -120,7 +120,7 @@ async function getData(myData) {
     
         let caption = document.createElement("div");
         caption.classList.add('titles');
-        caption.innerHTML = dp.Client + ", " + dp.Year;
+        caption.innerHTML = dp.Client;
     
         let imagee = document.createElement("div");
         imagee.classList.add('images');

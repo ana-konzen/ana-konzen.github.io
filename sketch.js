@@ -28,7 +28,7 @@ function setup() {
     cursor(CROSS);
 
     toggleButton.addEventListener('click', toggleFunction);
-    projects.addEventListener('click', protoggleFunction);
+    // projects.addEventListener('click', protoggleFunction);
     // toggleFunction();
 
 
@@ -62,13 +62,13 @@ function protoggleFunction() {
   
     toggleCircle.classList.add('off');
     noLoop();
-    clear();
+    // clear();
     cursor(ARROW);
     proCont.style.cursor = 'default';
     instructions.style.display = 'none';
-    myBuffer.style.display = 'block';
+    // myBuffer.style.display = 'block';
     toggleButton.style.bottom = "20px";
-    myBuffer2.style.display = 'block';
+    // myBuffer2.style.display = 'block';
 
 
   
