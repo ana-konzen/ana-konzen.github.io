@@ -48,11 +48,11 @@ function toggleFunction() {
   } else{
     toggleCircle.classList.add('off');
     noLoop();
-    // clear();
+    clear();
     cursor(ARROW);
     proCont.style.cursor = 'default';
     instructions.style.display = 'none';
-    // myBuffer.style.display = 'block';
+    myBuffer.style.display = 'block';
     toggleButton.style.bottom = "20px";
 
   }
