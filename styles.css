@@ -236,9 +236,7 @@ font-style: italic;
     opacity: 1;
 }
 
-.images:hover {
-    opacity: 0.6;
-}
+
 
 .tags {
     position: relative;
@@ -623,7 +621,9 @@ cursor: crosshair;
 
 
 
-
+    .images:hover {
+        opacity: 0.6;
+    }
 
 
 
