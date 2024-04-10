@@ -95,6 +95,7 @@ font-style: italic;
     border-radius: 15px;
     cursor: pointer;
     transition: 500ms;
+    display: none;
 
 }
 
@@ -153,7 +154,7 @@ font-style: italic;
     height: 50px;
     padding-left: 50px;
     margin-bottom: 10px;
-    display: flex;
+    display: none;
 }
 
 #tagCont div {
@@ -211,6 +212,7 @@ font-style: italic;
     flex-wrap: wrap;
     overflow: scroll;
     padding-left: 40px;
+    padding-top: 40px;
     padding-right: 40px;
     padding-bottom: 140px;
     justify-content: space-between;
@@ -421,6 +423,9 @@ cursor: crosshair;
     }
     
     
+    #toggleButton {
+        display: block;
+    }
     
     
     
@@ -440,7 +445,14 @@ cursor: crosshair;
     
         
     }
+
+    #tagCont {
+        display:flex;
+    }
     
+    #imageCont {
+        padding-top: 0;
+    }
     
     
     
