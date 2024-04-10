@@ -152,7 +152,7 @@ async function getData(myData) {
     
         newDiv.appendChild(imagee);
         newDiv.appendChild(tagContainer);
-        newDiv.appendChild(caption);
+        // newDiv.appendChild(caption);
         imageCont.appendChild(newDiv);
         
     }
