@@ -26,6 +26,14 @@ transition: 500ms;
 
 }
 
+#line {
+    position: fixed;
+    top: 100px;
+    width: 100vw;
+    height: 2px;
+    background: black;
+}
+
 canvas {
     display: block;
     position: fixed; 
