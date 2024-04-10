@@ -84,18 +84,37 @@ font-style: italic;
 
 }
 
-#proCont {
+#toggleButton {
+    width: 30px;
+    height: 15px;
+    right: 20px;
+    z-index: 2;
+    bottom: 90px;
     position: fixed;
-    width: 100vw;
-    height: 500px;
-    left: 50vw;
-    transform: translateX(-50%);
-    top: 120px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-
+    border: solid black 1px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 500ms;
 
 }
+
+#toggleCircle {
+    height: 12.5px;
+    width: 12.5px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 1.25px;
+    right: 1.25px;
+}
+
+.off {
+    left: 1.25px;
+}
+
+
+
+
 
 .disappear {
     display: none;
@@ -107,26 +126,153 @@ font-style: italic;
 
 }
 
-.thumbnail {
-    /* background: black; */
-    border: solid black 1px;
-    position: absolute;
-    transition: 500ms;
-    /* box-shadow: 5px 5px 10px rgb(18, 18, 18); */
-    top: 50px;
-    background-size: cover;
+.appearFlex {
+    display: flex;
+
 }
 
+#proCont {
+    position: fixed;
+    width: 100vw;
+    height: 800px;
+    left: 50vw;
+    transform: translateX(-50%);
+    top: 120px;
+    /* display: none; */
+    flex-flow: column;
 
-.divider {
+/*     
+    overflow-x: scroll;
+    overflow-y: hidden; */
+
+
+}
+
+#tagCont {
+    /* background: blue; */
     height: 50px;
-    width: 2px;
-    /* background: black; */
-    position: absolute;
+    padding-left: 50px;
+    margin-bottom: 10px;
+    display: flex;
 }
+
+#tagCont div {
+    border: solid 1px rgb(43, 43, 43);
+    padding: 5px;
+    /* padding-left: 20px; */
+    height: 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-family: "eb-garamond", serif;
+    user-select: none;
+}
+
+.inactive {
+    color: rgb(43, 43, 43);
+    background:  none;
+}
+
+.active {
+    background: rgb(43, 43, 43);
+    color:  #EEDEC5;
+}
+
+/* #tagCont div::before {
+    background: black;
+    height: 12px;
+    width: 1.5px;
+    position: absolute;
+    left: 10px;
+    transform: rotate(45deg);
+    content: '';
+}
+
+#tagCont div::after {
+    background: black;
+    height: 12px;
+    width: 1.5px;
+    position: absolute;
+    left: 10px;
+    transform: rotate(-45deg);
+    content: '';
+} */
+
+#imageCont {
+    /* background: green; */
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    overflow: scroll;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 140px;
+}
+
+.imageCont {
+    display: flex;
+    margin: 10px;
+    /* background: red; */
+    width: 350px;
+    height: 420px;
+    flex-flow: column;
+}
+
+.images {
+    background: purple;
+    height: 350px;
+    background-size: cover;
+    position: relative;
+}
+
+.tags {
+    position: relative;
+    display: flex;
+}
+
+.tags > div {
+    /* background: rgb(61, 61, 61); */
+    border: solid 1px black;
+    color: black;
+    padding: 5px;
+    height: 15px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-family: "eb-garamond", serif;
+}
+
+.titles {
+    margin-top: 5px;
+    font-family: "eb-garamond", serif;
+    font-size: 20px;
+
+}
+
+
+/* #imageCont > * {
+    width: 200px;
+    height: 200px;
+    border: solid black 1px;
+    background-size: cover;
+    
+} */
+
+
+
+
 
 .caption {
-    position: absolute;
+    position: relative;
     font-family: "eb-garamond", serif;
 font-weight: 500;
 font-style: normal;
@@ -297,7 +443,7 @@ cursor: crosshair;
         display: block;
         width: 300px;
         line-height: 20px;
-        right: 50px;
+        right: 20px;
         bottom: 20px;
         font-family: sans-serif;
         text-align: right;
@@ -310,13 +456,35 @@ cursor: crosshair;
     #proCont {
         position: fixed;
         width: 100vw;
-        height: 60vh;
         left: 50vw;
         transform: translateX(-50%);
-        top: 200px;
-        overflow: scroll;
+        top: 120px;
+        /* overflow: scroll; */
     cursor: crosshair;
     
+    }
+
+    #buffer {
+        background: #EEDEC5;
+        position: fixed;
+        display: none;
+        height: 200px;
+        width: 200px;
+        bottom: 0px;
+        right: 0px;
+
+    }
+
+    #buffer2 {
+        background: #EEDEC5;
+        /* background: black; */
+        position: fixed;
+        display: none;
+        height: 200px;
+        width: 200px;
+        top: 0px;
+        left: 400px;
+
     }
     
     .disappear {

@@ -8,6 +8,18 @@ let circleArray = [];
 
 console.log(proCont.classList.contains("appear"));
 
+let toggleButton = document.getElementById("toggleButton");
+let toggleCircle = document.getElementById("toggleCircle");
+
+let myBuffer = document.getElementById("buffer");
+let myBuffer2 = document.getElementById("buffer2");
+
+
+
+let instructions = document.getElementById("instructions");
+
+
+
 
 
 
@@ -15,15 +27,63 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     cursor(CROSS);
 
+    toggleButton.addEventListener('click', toggleFunction);
+    projects.addEventListener('click', protoggleFunction);
+    // toggleFunction();
+
 
 
 }
 
+function toggleFunction() {
+  if(toggleCircle.classList.contains('off')){
+    toggleCircle.classList.remove('off');
+    loop();
+    cursor(CROSS);
+    instructions.style.display = 'block';
+    myBuffer.style.display = 'none';
+    myBuffer2.style.display = 'none';
+    proCont.style.cursor = 'crosshair';
+    toggleButton.style.bottom = "90px";
+  } else{
+    toggleCircle.classList.add('off');
+    noLoop();
+    // clear();
+    cursor(ARROW);
+    proCont.style.cursor = 'default';
+    instructions.style.display = 'none';
+    // myBuffer.style.display = 'block';
+    toggleButton.style.bottom = "20px";
+
+  }
+}
+
+function protoggleFunction() {
+  
+    toggleCircle.classList.add('off');
+    noLoop();
+    clear();
+    cursor(ARROW);
+    proCont.style.cursor = 'default';
+    instructions.style.display = 'none';
+    myBuffer.style.display = 'block';
+    toggleButton.style.bottom = "20px";
+    myBuffer2.style.display = 'block';
+
+
+  
+}
+
 function windowResized() {
+  if(isLooping()){
     resizeCanvas(windowWidth, windowHeight);
+  } else {
+    resizeCanvas(windowWidth, windowHeight, noRedraw);
+  }
   }
 
 function draw() {
+  console.log(isLooping());
 
   if (proCont.classList.contains("appear")) {
     opacity = 10;
@@ -39,10 +99,13 @@ function draw() {
     filter(BLUR, 2);
 
     if (mouseIsPressed){
-        stroke(2, 50, 46);
+        stroke(2, 50, 46, opacity);
     }
 
-    circleArray.push(ellipse(mouseX, mouseY, size, size));
+    if(mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height){
+
+    ellipse(mouseX, mouseY, size, size);
+  }
 
     
 

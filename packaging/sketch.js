@@ -8,31 +8,20 @@ let circleSize;
 let cnv;
 let bleed;
 let opacity;
-
-
 let productName = document.getElementById("name");
-
-
 let dotSize;
-
 let pName, pStrength, pNotes, pFamily1, pFamily2, pFresh, pLight, pSound, pHeart, pInside, pSillage;
 let indexSlider, seedSlider, xSlider, xSlider2, ySlider, ySlider2;
-
-var particles = [];
-
 let darkPalette = ['#392217', '#9E3900', '#6A7021', '#245705', '#827D0A', '#7A0367', '#08424F', '#6E5525', '#9C0F29', '#880D0D', '#301404'];
 let dimPalette = ['#84513B', '#C55F33', '#8D9632', '#4A9D2D', '#B6AF09', '#AA2B96', '#258DA4', '#AE8943', '#CF324E', '#C21313', '#612D22'];
 let brightPalette = ['#B77457', '#FD996E', '#CFDA57', '#C0DC92', '#E2DA08', '#FA82E7', '#68E3FF', '#F7DBA6', '#FF6B86', '#EF1313', '#C69D8C'];
 let palette = [];
-
 let zoff = 0;
-
 let flowfield;
 
 function preload () {
         let sheetID = "1F9hk_1pmr8dlvLzMMr3BTQb1xVvZquNtT06hwHnaBlA";   
         let tabName = 'Sheet1';
-
         let opensheet_url = `https://opensheet.elk.sh/${sheetID}/${tabName}`;
         data = loadJSON(opensheet_url);
       
@@ -45,7 +34,6 @@ function setup() {
         let keys = Object.keys(data);
         console.log(keys.length);
         for (let i = 0; i < keys.length; i++){
-            // console.log(data[i]);
         }
         angleMode(DEGREES);
         cnv = createCanvas(450, 750, WEBGL);
@@ -68,7 +56,6 @@ function setup() {
         ySlider2 = createSlider(-100, 100, 0, 1);
         ySlider2.position(30, 400);
         ySlider2.size(200);
-        // console.log(seedSlider.input);
 
         positionCanvas();
         brush.load();
@@ -79,11 +66,19 @@ function setup() {
         ySlider.input(valuechanged);
         ySlider2.input(valuechanged);
         // valuechanged();
+        let downb = createButton('Download Design');
+        downb.addClass('downloadb');
+        downb.mousePressed(downloadCanvas);
+        noLoop();
+
     }
 
 function valuechanged() {
     redraw();
+}
 
+function downloadCanvas() {
+    saveCanvas();
 }
 
 function windowResized(){
@@ -91,12 +86,8 @@ function windowResized(){
 }
 
 function draw() {
-    noLoop();
-    background('#faf6f0');
-    // noLoop();
+    background('#faf8f1');
     brush.noField();
-    // brush.field("curved");
-    // brush.refreshField(frameCount / 10);
     let seed = seedSlider.value() * (indexSlider.value() + 1);
     brush.seed(seed);
     randomSeed(seed);
@@ -113,70 +104,12 @@ function draw() {
 
 
 
-
+    
     fill('black');
     noStroke();
     scale(1.3);
-    // textAlign(CENTER);
-    // text(pName, width/2, 100);
-    // textSize(20);
 
     brush.set("rotring", color1, strokeW);
-
-    // brush.fill("#F5F5DC", 100);
-    // brush.bleed(0.3)
-
-    // brush.rect(-width/2, -height/2, width, height)
-
-    // // brush.noFill();
-
-    // let numCircles = 3;
-    // let ringDistance = 0.5;
-
-    // brush.fill(color1, opacity);
-    // brush.bleed(bleed);
-
-    
-        // brush.circle(0, 0, circleSize);
-    
-
-    // let lineN = 20;
-    // let radius = circleSize*2;
-    // let radius2 = circleSize;
-    // let radius3 = circleSize*3;
-    // let lineWidth = 20;
-    // let angOffset = 0; // set by heartrate
-
-    // brush.set("rotring", color1, strokeW);
-    // offset = random(50);
-
-
-    // for(let i = 0; i < pNotes; i++){
-    //     angle = PI*i/lineN + offset;
-    //     brush.flowLine(circleSize*cos(angle), -circleSize*sin(angle), lineWidth, angle + angOffset);
-    //     // brush.circle(radius2*cos(angle), -radius2*sin(angle), 3);
-
-
-    // }
-
-
-
-
-
-
-    // brush.beginStroke('curve', 0, -100);
-    //     brush.segment(3/4*PI, 150, 10);
-    //     brush.segment(5/4*PI, 450, 2);
-    //     brush.segment(7/4*PI, 150, 0.5);
-    //     brush.segment(1/4*PI, 450, 2);
-    // brush.endStroke(3/4*PI, 10);
-
-    // brush.beginStroke('curve', -150, 150);
-    //     for(let i=0; i < pNotes; i++){
-    //         brush.segment(random()*(i+1)*PI / 2, 80, random(20));
-    //     }
-
-    // brush.endStroke(random()*PI, 10);
 
     ang1 = random(180);
     ang2 = random(180);
@@ -186,10 +119,6 @@ function draw() {
     ang5 = random(180);
     ang6 = random(180);
 
-
-
-    // brush.setHatch("rotring", color1, 6);
-    // brush.hatch(20, PI+3/4, {rand: false, continuous: false, gradient: false});
     let myLine = new brush.Plot('curve');
         myLine.addSegment(ang1, random(100, 200), strokeW / 2);
         myLine.addSegment(ang2, random(100, 200), strokeW / 2);
@@ -203,11 +132,6 @@ function draw() {
     let points = myLine.genPol(xpos, ypos);
 
     let freshness = floor(map(pFresh, 1, 10, 1, 7));
-    // console.log(freshness);
-
-    
-    // console.log(points);
-    // brush.polygon(points.a);
 
     xpos = random(100) + xoffset2;
     ypos = random(50) + yoffset2;
@@ -218,7 +142,7 @@ function draw() {
     myLine2.addSegment(ang6, random(100, 200), strokeW / 2);
     brush.set("rotring", color2, strokeW);
     brush.plot(myLine2, xpos, ypos, 1);
-    // brush.plot(myLine2, -30, -20, 1);
+
     let points2 = myLine2.genPol(xpos, ypos);
 
     let myDot = new brush.Plot('curve');
@@ -235,17 +159,7 @@ function draw() {
     for(let i = 0; i < points2.vertices.length; i+=freshness){
         brush.plot(myLines, points2.vertices[i].x, points2.vertices[i].y, 1);
     }
-    // brush.plot(myLines, points.vertices[points.vertices.length-2].x - 60, points.vertices[points.vertices.length-2].y + 60, 1);
 
-
-    
-
-    // distance = map(pFresh, 0, 10, 0, 100);
-    // myLine.rotate(PI);
-    // brush.plot(myLine, -55, 20 - distance, 1);
-
-
-       
 
     }
 
@@ -269,9 +183,6 @@ function analyzeData(index){
     pLight = product['Light Level'];
     pHeart = Number(product['Heart Rate (BPM)']);
     pSound = product['Environmental Sound'];
-    pInside = product['Outside/Inside'];
-    pSillage = product.Sillage;
-
 
     if(pStrength == 'Strong'){
         strokeW = 50;
@@ -286,7 +197,6 @@ function analyzeData(index){
         opacity = 20;
     }
 
-    // console.log(pSound);
 
     if (pSillage == 'Strong'){
         bleed = 0.4;
