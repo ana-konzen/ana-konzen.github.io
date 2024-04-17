@@ -251,6 +251,10 @@ font-style: italic;
     display: flex;
 }
 
+.desc {
+    top: 20px;
+}
+
 .tags > div {
     /* background: rgb(61, 61, 61); */
     border: solid 1px black;
@@ -631,6 +635,97 @@ cursor: crosshair;
 
     .images:hover {
         opacity: 0.6;
+    }
+
+
+    #proPage {
+        position: fixed;
+        /* background: red; */
+        width: 100vw;
+        bottom: 0;
+        height: calc(100vh - 102px);
+        display: flex;
+    }
+
+    #proImages {
+        /* background: green; */
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        justify-items: center;
+        align-items: center;
+        border-left: solid 1px black;
+
+    }
+
+    #proImages img {
+        width: 90%;
+        margin-bottom: 5px;
+    }
+
+    .imagecp {
+        width: 90%;
+        margin-bottom: 50px;
+
+        /* background: purple; */
+        font-family: "eb-garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 16px;
+    }
+
+    #description {
+        height: 100%;
+        width: 50%;
+        border-left: solid 2px black;
+        padding-left: 50px;
+
+    }
+
+    #header {
+        font-family: "eb-garamond", serif;
+        font-weight: 400;
+        font-style: italic;
+        position: relative;
+        top: 20px;
+        font-size: 22px;
+    }
+
+    #text {
+        position: relative;
+        top: 40px;
+        left: 200px;
+        font-family: "eb-garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 18px;
+    }
+
+    #prolink {
+        position: relative;
+        top: 10px;
+        font-family: "eb-garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 18px;
+        border: solid black 1px;
+        width: 140px;
+        text-align: center
+    }
+
+  
+
+    #proinfo p {
+        font-family: "eb-garamond", serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 14px;
+
+    }
+    #proinfo span {
+        font-size: 18px;
     }
 
 

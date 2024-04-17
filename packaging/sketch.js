@@ -7,9 +7,27 @@ let color1, color2;
 let circleSize;
 let cnv;
 let bleed;
+
+
+let infoArray = [];
+
+let selectIndex;
+
 let opacity;
 let productName = document.getElementById("name");
 let dotSize;
+let randomline = document.getElementById("randomline");
+let line1pos = document.getElementById("line1pos");
+let line2pos = document.getElementById("line2pos");
+let changeproduct = document.getElementById("changeproduct");
+let buttoncont = document.getElementById("buttoncont");
+let buttons = document.getElementById("buttons");
+
+let seedCaption;
+
+let indexValue, seedValue, xValue, yValue, x2Value, y2Value;
+
+
 let pName, pStrength, pNotes, pFamily1, pFamily2, pFresh, pLight, pSound, pHeart, pInside, pSillage;
 let indexSlider, seedSlider, xSlider, xSlider2, ySlider, ySlider2;
 let darkPalette = ['#392217', '#9E3900', '#6A7021', '#245705', '#827D0A', '#7A0367', '#08424F', '#6E5525', '#9C0F29', '#880D0D', '#301404'];
@@ -29,56 +47,168 @@ function preload () {
 
 
 function setup() {
-        console.log(data);
+        
         console.log(data[0].Product);
+
         let keys = Object.keys(data);
-        console.log(keys.length);
         for (let i = 0; i < keys.length; i++){
+            let array = [];
+            infoArray.push(array);
         }
+
+ 
+
         angleMode(DEGREES);
         cnv = createCanvas(450, 750, WEBGL);
-        seedSlider = createSlider(61, 561, 0, 50);
-        seedSlider.position(30, 140);
-        seedSlider.size(200);
-        indexSlider = createSlider(0, keys.length - 1, 0, 1);
-        indexSlider.position(30, 60);
-        indexSlider.size(200);
-        xSlider = createSlider(-100, 100, 0, 1);
-        xSlider.position(30, 230);
-        xSlider.size(200);
-        xSlider2 = createSlider(-100, 100, 0, 1);
-        xSlider2.position(30, 270);
-        xSlider2.size(200);
+        
+        // indexSlider = createSlider(0, keys.length - 1, 0, 1);
+        // indexSlider.parent(changeproduct);
 
-        ySlider = createSlider(-100, 100, 0, 1);
-        ySlider.position(30, 360);
-        ySlider.size(200);
-        ySlider2 = createSlider(-100, 100, 0, 1);
-        ySlider2.position(30, 400);
-        ySlider2.size(200);
+        selectIndex = createSelect();
+        selectOptions(selectIndex, keys);
+        indexValue = selectIndex.value();
+        selectIndex.parent(changeproduct);
+
+
+        seedValue = data[indexValue].Seed;
+        xValue = data[indexValue].Line1X;
+        yValue = data[indexValue].Line1Y;
+    
+        x2Value = data[indexValue].Line2X;
+        y2Value = data[indexValue].Line2Y;
+
+        seedSlider = createSlider(-200, 200, 0, 10);
+        seedSlider.value(seedValue);
+        seed = seedSlider.value();
+        seedCaption = createDiv();
+        seedSlider.parent(randomline);
+        seedCaption.parent(randomline);
+
+
+        xSlider = createSlider(-200, 100, -50, 1);
+        ySlider = createSlider(-100, 200, 50, 1);
+        let xcaption1 = createDiv("<span></span><span>x position</span><span></span>");
+        let ycaption1 = createDiv("<span></span><span>y position</span><span></span>");
+        xSlider.parent(line1pos);
+        xSlider.value(xValue);
+        xcaption1.parent(line1pos);
+        ySlider.parent(line1pos);
+        ySlider.value(yValue);
+        ycaption1.parent(line1pos);
+
+        xSlider2 = createSlider(-200, 100, -50, 1);
+        ySlider2 = createSlider(-200, 100, -50, 1);
+        let xcaption2 = createDiv("<span></span><span>x position</span><span></span>");
+        let ycaption2 = createDiv("<span></span><span>y position</span><span></span>");
+        xSlider2.parent(line2pos);
+        xSlider2.value(x2Value);
+        xcaption2.parent(line2pos);
+        ySlider2.parent(line2pos);
+        ySlider2.value(y2Value);
+        ycaption2.parent(line2pos);
 
         positionCanvas();
         brush.load();
+
+        // indexSlider.input(indexChanged);
+        selectIndex.input(indexChanged);
         seedSlider.input(valuechanged);
-        indexSlider.input(valuechanged);
         xSlider.input(valuechanged);
         xSlider2.input(valuechanged);
         ySlider.input(valuechanged);
         ySlider2.input(valuechanged);
         // valuechanged();
-        let downb = createButton('Download Design');
+        let downb = createButton('Download Label');
+        let saveb = createButton('Save Design');
+        let resetb = createButton('Reset Design');
         downb.addClass('downloadb');
+        saveb.parent(buttons);
+        resetb.parent(buttons);
+
+        downb.parent(buttoncont);
+
+        saveb.mousePressed(saveDesign);
+        resetb.mousePressed(resetDesign);
+
+
         downb.mousePressed(downloadCanvas);
         noLoop();
 
     }
 
+function indexChanged() {
+    indexValue = selectIndex.value();
+
+    seedValue = data[indexValue].Seed;
+    seedSlider.value(seedValue);
+
+    xValue = data[indexValue].Line1X;
+    xSlider.value(xValue);
+    yValue = data[indexValue].Line1Y;
+    ySlider.value(yValue);
+
+    x2Value = data[indexValue].Line2X;
+    xSlider2.value(x2Value);
+    y2Value = data[indexValue].Line2Y;
+    ySlider2.value(y2Value);
+    
+    redraw();
+}
+
 function valuechanged() {
     redraw();
 }
 
+
+
+function saveDesign() {
+    if(infoArray[selectIndex.value()].length === 0){
+    infoArray[selectIndex.value()].push(seedSlider.value());
+    infoArray[selectIndex.value()].push(xSlider.value());
+    infoArray[selectIndex.value()].push(ySlider.value());
+    infoArray[selectIndex.value()].push(xSlider2.value());
+    infoArray[selectIndex.value()].push(ySlider2.value());
+    } else {
+        infoArray[selectIndex.value()][0] = seedSlider.value();
+        infoArray[selectIndex.value()][1] = xSlider.value();
+        infoArray[selectIndex.value()][2] = ySlider.value();
+        infoArray[selectIndex.value()][3] = xSlider2.value();
+        infoArray[selectIndex.value()][4] = ySlider2.value();
+    }
+
+    console.log(infoArray[selectIndex.value()]);
+
+
+}
+
+function resetDesign() {
+    if(infoArray[selectIndex.value()].length === 0){
+        seedValue = data[indexValue].Seed;
+        seedSlider.value(seedValue);
+    
+        xValue = data[indexValue].Line1X;
+        xSlider.value(xValue);
+        yValue = data[indexValue].Line1Y;
+        ySlider.value(yValue);
+    
+        x2Value = data[indexValue].Line2X;
+        xSlider2.value(x2Value);
+        y2Value = data[indexValue].Line2Y;
+        ySlider2.value(y2Value);
+    }
+    else {
+    console.log(infoArray[selectIndex.value()]);
+    seedSlider.value(infoArray[selectIndex.value()][0]);
+    xSlider.value(infoArray[selectIndex.value()][1]);
+    ySlider.value(infoArray[selectIndex.value()][2]);
+    xSlider2.value(infoArray[selectIndex.value()][3]);
+    ySlider2.value(infoArray[selectIndex.value()][4]);
+    }
+    redraw();
+}
+
 function downloadCanvas() {
-    saveCanvas();
+    saveCanvas(data[indexValue].Product, 'png');
 }
 
 function windowResized(){
@@ -86,14 +216,16 @@ function windowResized(){
 }
 
 function draw() {
-    background('#faf8f1');
+    clear();
     brush.noField();
-    let seed = seedSlider.value() * (indexSlider.value() + 1);
+    let index = selectIndex.value();
+    analyzeData(index);
+
+    let seed = seedSlider.value();
+    seedCaption.html("<span></span><span>Current seed: " + seed + "</span><span></span>");
     brush.seed(seed);
     randomSeed(seed);
 
-    let index = indexSlider.value();
-    analyzeData(index);
     productName.innerHTML = pName;
 
     let xoffset = xSlider.value();
@@ -170,9 +302,23 @@ function positionCanvas() {
     
 }
 
+function selectOptions (select, keys) {
+    for (let i = 0; i < keys.length; i++){
+        select.option(data[i].Product, i);
+
+    }
+   }
+
 function analyzeData(index){
 
     let product = data[index];
+
+        seedValue = product.Seed;
+        xValue = product.Line1X;
+        yValue = product.Line1Y;
+    
+        x2Value = product.Line2X;
+        y2Value = product.Line2Y;
 
     pName = product.Product;
     pFamily1 = product['Olfactive (Primary)'];
