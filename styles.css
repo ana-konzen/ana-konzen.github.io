@@ -113,7 +113,7 @@ font-style: italic;
     background: black;
     border-radius: 50%;
     position: absolute;
-    top: 1.25px;
+    top: 1.249px;
     right: 1.25px;
 }
 
@@ -693,14 +693,28 @@ cursor: crosshair;
         font-size: 22px;
     }
 
+    .row {
+        margin: 10px;
+        height: 100px;
+    }
+
+    .main {
+        display: flex;
+        flex-flow: row;
+        height: 500px;
+    }
+
+  
+
     #text {
         position: relative;
-        top: 40px;
-        left: 200px;
+        margin-left: 40px;
         font-family: "eb-garamond", serif;
         font-weight: 300;
         font-style: normal;
         font-size: 18px;
+        width: 60%;
+        margin-top: 10px;
     }
 
     #prolink {
@@ -713,6 +727,12 @@ cursor: crosshair;
         border: solid black 1px;
         width: 140px;
         text-align: center
+    }
+
+    #proinfo {
+        border-right: solid black 1px;
+        padding-right: 25px;
+
     }
 
   

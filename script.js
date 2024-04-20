@@ -11,6 +11,21 @@ let contact = document.getElementById("contact");
 
 let mainheader = document.getElementById("main-header");
 
+let proText =  document.getElementById("text");
+
+let proPage = document.getElementById("proPage");
+
+proPage.style.display = 'none';
+
+let proHeader = document.getElementById("header");
+
+let client = document.getElementById("client");
+let year = document.getElementById("year");
+let medium = document.getElementById("medium");
+
+
+
+
 
 
 
@@ -59,6 +74,8 @@ projects.addEventListener('click', function (){
     proCont.classList.toggle("disappear");
     conCont.classList.remove("appear");
     abCont.classList.remove("appear");
+proPage.style.display = 'none';
+
 })
 
 about.addEventListener('click', function (){
@@ -66,6 +83,8 @@ about.addEventListener('click', function (){
     proCont.classList.remove("appearFlex");
     proCont.classList.add("disappear");
     conCont.classList.remove("appear"); 
+proPage.style.display = 'none';
+
     })
 
 contact.addEventListener('click', function (){
@@ -73,6 +92,8 @@ contact.addEventListener('click', function (){
     proCont.classList.remove("appearFlex");
     proCont.classList.add("disappear");
     abCont.classList.remove("appear"); 
+proPage.style.display = 'none';
+
     })
 
 // let thumbnails = document.querySelectorAll(".thumbnail");
@@ -114,6 +135,7 @@ async function getData(myData) {
     const response = await fetch(myData);
     const data = await response.json();
     let allTags = [];
+proText.innerHTML = data[0].Text;
 
     for (let dp of data){
         allTags.push(dp.Tag1);
@@ -132,6 +154,21 @@ async function getData(myData) {
         console.log(dp.Main_Image);
       
         imagee.style.backgroundImage = "url('" + dp.Main_Image + "')";
+
+        imagee.addEventListener('mousedown', function (){
+            console.log(dp.Client);
+            proPage.style.display = 'flex';
+            proCont.classList.remove("appearFlex");
+            proCont.classList.add("disappear");
+            proHeader.innerHTML = dp.Header;
+            proText.innerHTML = dp.Text;
+            client.innerHTML = dp.Client;
+            year.innerHTML = dp.Year;
+            medium.innerHTML = dp.Medium;
+
+
+
+        })
         
 
         let tagContainer = document.createElement("div");
