@@ -4,7 +4,10 @@ class myLetter {
         this.text = word;
         this.posx = 60;
         this.posy = 100;
-        this.color = '#c40404';
+        // this.alpha = 255;
+        // this.color = color(19, 4, 4, this.alpha);
+        this.color = '#c40404'
+        this.stroke = color(0, 0, 0, this.alpha);
         this.size = 100;
         // this.font = font;
         this.array = [];
@@ -55,6 +58,15 @@ class myLetter {
 
 
     }
+
+    update() {
+        // this.alpha = this.alpha + 0.1;
+        this.alpha = 255;
+        this.color = color(196, 4, 4, this.alpha);
+        this.stroke = color(0, 0, 0, this.alpha);
+
+
+    }
     show(){
         push();
     // ellipseMode(CENTER);
@@ -72,6 +84,7 @@ class myLetter {
             // noStroke();
             strokeWeight(1);
 stroke(0);
+// fill(0);
 
 // noStroke();
 

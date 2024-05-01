@@ -3,8 +3,7 @@ body {
 }
 
 canvas {
-    display: block;
-    z-index: 0;
+    display: none;
 }
 
 @font-face {
@@ -14,59 +13,99 @@ canvas {
 }
 
 #container {
-    z-index: 2;
-    position: fixed;
-    width: 730px;
-    left: 48px;
-    /* height: 782px; */
-    height: 100vh;
-    top: 0px;
+    display: none;
 }
 
 #background {
-    width: 100%;
-    height: 800px;
-    bottom: 0px;
-    position: absolute;
-    background: rgb(57, 57, 57);
-    opacity: 20%;
-
+    display: none;
 }
 
-#container p {
-    font-family: "hypatia-sans-pro", sans-serif;
-font-weight: 300;
-font-style: normal;
-/* font-variant: small-caps; */
+#menu {
+    display: flex;
+    flex-flow: column;
+}
 
-font-size: 18px;
-height: 30px;
-/* background: red; */
-display: flex;
-align-items: baseline;
-align-content: baseline;
-justify-content: end;
-    position: relative;
-    color: white;
-    /* right: 95px; */
-    right: 55px;
-    width: 100%;
-    top: 100px;
+#menu button {
+    font-size: 20px;
+}
+
+#menu input {
+    margin-bottom: 5px;
+    height: 20px;
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) {
+    #menu {
+        display: none;
+    }
+    canvas {
+        display: block;
+        z-index: 0;
+    }
+
+    #container {
+        z-index: 2;
+        position: fixed;
+        width: 730px;
+        left: 48px;
+        /* height: 782px; */
+        height: 100vh;
+        top: 0px;
+        display: block;
+    }
+
+    #container p {
+        font-family: "hypatia-sans-pro", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    /* font-variant: small-caps; */
+    
+    font-size: 18px;
+    height: 30px;
     /* background: red; */
+    display: flex;
+    align-items: baseline;
+    align-content: baseline;
+    justify-content: end;
+        position: relative;
+        color: white;
+        /* right: 95px; */
+        right: 55px;
+        width: 100%;
+        top: 100px;
+        /* background: red; */
+    }
+
+    #container p::after {
+        content: "";
+        background: white;
+        height: 1px;
+        width: 50px;
+        position: absolute;
+        right: -55px;
+        top: 15px;
+    }
+
+    #counter {
+        font-variant-caps: all-small-caps;
+    
+    }
+
+    #background {
+        width: 100%;
+        height: 800px;
+        bottom: 0px;
+        position: absolute;
+        background: rgb(57, 57, 57);
+        opacity: 20%;
+        display: block;
+    
+    }
+
+
+
 }
-
-#counter {
-    font-variant-caps: all-small-caps;
-
-}
-
-#container p::after {
-    content: "";
-    background: white;
-    height: 1px;
-    width: 50px;
-    position: absolute;
-    right: -55px;
-    top: 15px;
-}
-
