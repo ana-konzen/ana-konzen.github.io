@@ -23,16 +23,48 @@ canvas {
 #menu {
     display: flex;
     flex-flow: column;
+    background: rgb(238, 238, 238);
+    padding: 10px;
+    width: 90vw;
+    position: fixed;
+    top: 50px;
+    left: 3vw;
 }
 
-#menu button {
+#buttonCont {
+    display: flex;
+}
+
+#inputCont {
+    display: flex;
+}
+#buttonCont button {
     font-size: 20px;
+    width: 100%;
+
 }
 
-#menu input {
+#inputCont input {
     margin-bottom: 5px;
-    height: 20px;
+    height: 30px;
+    width: 100%;
 }
+
+#colorCont {
+    display: flex;
+    /* flex-wrap: wrap; */
+    width: 100%;
+
+}
+
+#colorCont div {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+
 
 
 

@@ -1,12 +1,12 @@
 
 class myLetter {
-    constructor(word, inx, iny, inangle, invel){
+    constructor(word, colorr, inx, iny, inangle, invel){
         this.text = word;
         this.posx = 60;
         this.posy = 100;
         // this.alpha = 255;
         // this.color = color(19, 4, 4, this.alpha);
-        this.color = '#c40404'
+        this.color = colorr;
         this.stroke = color(0, 0, 0, this.alpha);
         this.size = 100;
         // this.font = font;
@@ -121,6 +121,7 @@ stroke(0);
 
         translate(this.body.position.x, this.body.position.y);
         rotate(this.body.angle);
+        console.log(this.color);
         fill(this.color);
         stroke(this.color);
         // noStroke();

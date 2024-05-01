@@ -1,4 +1,7 @@
-let menu = document.getElementById('menu');
+let inputCont = document.getElementById('inputCont');
+let colorCont = document.getElementById('colorCont');
+let buttonCont = document.getElementById('buttonCont');
+
 let myText;
 // let textArr = [];
 let font;
@@ -23,7 +26,9 @@ let updateData = [];
 
 let intPositions = [];
 
-let palette = [];
+let palette = ['#c40404', '#2071f5', '#5fc91c', '#ffffff', '#eb9131', '#f5e133', '#b929d6', '#fa34cf'];
+
+let initX = [];
 
 let keys;
 
@@ -40,6 +45,8 @@ let engine;
 let counter = 0;
 
 let ground, wall1, wall2;
+
+let selectedColor;
 
 let control;
 
@@ -97,7 +104,7 @@ database = firebase.database();
     console.log(myLetters);
 
     myInput = createInput();
-    myInput.parent('menu');
+    myInput.parent('inputCont');
 
     engine = Engine.create();
 
@@ -105,12 +112,28 @@ database = firebase.database();
 
     let button = createButton('Submit');
     // button.position(820, 50);
-    button.parent('menu')
+    button.parent('buttonCont')
     button.mousePressed(rewrite);
 
     // slider = createSlider(50, 250);
     // slider.position(820, 100);
     // slider.size(100);
+    let arr = [];
+
+    for (let i =0; i < palette.length; i++) {
+        let c = palette[i];
+        let div = createDiv();
+        div.style('background', c);
+        div.parent('colorCont');
+        arr.push(div);
+        div.mousePressed(function() {
+            console.log(c);
+            selectedColor = c;
+            console.log(selectedColor);
+            // div.style('border', '2px solid black');
+        })
+
+    }
 
 
 
@@ -166,8 +189,9 @@ database = firebase.database();
             let ny = word.positions[1];
             let nangle = word.positions[2];
             let nvel = word.positions[3];
+            console.log(word.color);
     
-            let n = new myLetter(word.word, nx, ny, nangle, nvel);
+            let n = new myLetter(word.word, word.color, nx, ny, nangle, nvel);
             myObjs.push(n);
 
         }
@@ -231,8 +255,12 @@ stroke(0);
     pop();
 
 
+
     for(let i = 0; i < myObjs.length; i++){
         let obj = myObjs[i];
+
+        
+
 
 
         // obj.update();
@@ -243,7 +271,8 @@ stroke(0);
 
         allData[i] = {
             positions: [obj.body.position.x, obj.body.position.y, obj.body.angle, obj.body.angularVelocity],
-            word: obj.text
+            word: obj.text,
+            color: obj.color
         }
 
     
@@ -267,6 +296,9 @@ function rewrite() {
     counter = 0;
     let newText = myInput.value();
     let randomX = random(150, 630);
+    initX.push(randomX);
+    console.log(initX);
+    console.log(selectedColor);
     // let n = new myLetter(newText, randomX, 50, 0, 0);
     let pos = [randomX, 50, 0, 0];
     // pos.push(n.body.position.x, n.body.position.y, n.body.angle, n.body.angularVelocity);
@@ -280,6 +312,7 @@ function rewrite() {
 
     let data = {
         word: myInput.value(),
+        color: selectedColor,
         positions: pos
     }
 
