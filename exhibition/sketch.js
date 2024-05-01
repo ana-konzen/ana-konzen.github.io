@@ -6,11 +6,23 @@ let slider;
 let letterArr = [];
 let myLetters = [];
 
+let myPositions;
+
+let posArr = [];
+
+let refAll;
+
 let myObjs = [];
+
+let allData = [];
 
 let intPositions = [];
 
 let palette = [];
+
+let keys;
+
+let myKeys = [];
 
 let Engine = Matter.Engine,
     // Render = Matter.Render,
@@ -29,19 +41,22 @@ let control;
 let myTest;
 
 
+let database;
 
 
 
-if(getCookie('myLetters') == ''){
-    console.log("no words have been submited")
-} else {
-    myLetters = JSON.parse(getCookie('myLetters'));
-    intPositions = JSON.parse(getCookie('intPositions'));
 
-    console.log(myLetters);
-    console.log(intPositions);
 
-}
+// if(getCookie('myLetters') == ''){
+//     console.log("no words have been submited")
+// } else {
+//     myLetters = JSON.parse(getCookie('myLetters'));
+//     intPositions = JSON.parse(getCookie('intPositions'));
+
+//     console.log(myLetters);
+//     console.log(intPositions);
+
+// }
 
 function preload() {
     font = loadFont('ABCArizonaMix-Bold-Trial.otf');
@@ -52,6 +67,31 @@ function preload() {
 function setup () {
     // counter = 0;
 deleteAllCookies();
+
+
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBfYwIYYJlhqXS55UidVjMkGhceMakJuL4",
+    authDomain: "wordplay-2f97c.firebaseapp.com",
+    projectId: "wordplay-2f97c",
+    storageBucket: "wordplay-2f97c.appspot.com",
+    messagingSenderId: "721772964267",
+    appId: "1:721772964267:web:4af68029cfcee41b980aee",
+    measurementId: "G-XDRL2Y65D3",
+    databaseURL: "https://wordplay-2f97c-default-rtdb.firebaseio.com/"
+  };
+
+
+firebase.initializeApp(firebaseConfig);
+
+
+database = firebase.database();
+
+
+
+
+
 
 
     // clearStorage();
@@ -77,31 +117,7 @@ deleteAllCookies();
     slider.position(820, 100);
     slider.size(100);
 
-    for(let i= 0; i < myLetters.length; i++){
-        let letter = myLetters[i];
-        // letter.show();
-        console.log(letter);
 
-        let nx = intPositions[i][0];
-        let ny = intPositions[i][1];
-        let nangle = intPositions[i][2];
-        let nvel = intPositions[i][3];
-
-
-
-
-        let n = new myLetter(letter, nx, ny, nangle, nvel);
-
-
-        // n.color = letter.color;
-        // n.posx = letter.posx;
-        // n.posy = letter.posy;
-        // n.size = letter.size;
-
-        myObjs.push(n);
-
-        console.log(n);
-    }
 
     console.log(myObjs);
 
@@ -136,12 +152,115 @@ deleteAllCookies();
 
     // Runner.run(engine);
 
+    refAll = database.ref('initialInput');
 
+    refAll.on('child_added', function(data){
+        let word = data.val();
+        allData.push(word);
+        console.log(allData);
+        console.log(word);
+
+        let nx = word.positions[0];
+        let ny = word.positions[1];
+        let nangle = word.positions[2];
+        let nvel = word.positions[3];
+
+        let n = new myLetter(word.word, nx, ny, nangle, nvel);
+        myObjs.push(n);
+       console.log(myObjs);
+
+
+
+        // let n = new myLetter()
+    });
+    // console.log(myKeys);
+    // console.log(myPositions);
+
+
+    // let n = new myLetter
+
+    
 
 
     }
 
 
+// function gotData(data) {
+//     // console.log(data.val());
+//     let words = data.val();
+//     keys = Object.keys(words);
+//     console.log(keys[0]);
+//     console.log(data.val());
+//     console.log(words[keys[0]]);
+
+
+//     for (let i = 0; i < keys.length; i++){
+//         key = keys[i];
+//         // myKeys.push(key);
+
+//         let word = words[key].word;
+//         myPositions = words[key].positions;
+
+//         console.log(word);
+
+//         let nx = myPositions[0];
+//         let ny = myPositions[1];
+//         let nangle = myPositions[2];
+//         let nvel = myPositions[3];
+
+//         // let n = new myLetter(word, nx, ny, nangle, nvel);
+
+//         // myObjs.push(n);
+
+//     }
+
+    // console.log(myObjs);
+
+    // for(let i= 0; i < myLetters.length; i++){
+    //     let letter = myLetters[i];
+    //     // letter.show();
+    //     console.log(letter);
+
+    //     let nx = intPositions[i][0];
+    //     let ny = intPositions[i][1];
+    //     let nangle = intPositions[i][2];
+    //     let nvel = intPositions[i][3];
+
+
+
+
+    //     let n = new myLetter(letter, nx, ny, nangle, nvel);
+
+
+    //     // n.color = letter.color;
+    //     // n.posx = letter.posx;
+    //     // n.posy = letter.posy;
+    //     // n.size = letter.size;
+
+    //     myObjs.push(n);
+
+    //     console.log(n);
+    // }
+// }
+
+
+
+function updateData(word, arr, key) {
+    let ref = database.ref('initialInput/' + key);
+    ref.set({
+        word: word,
+        positions: arr
+    })
+
+
+
+
+}
+
+function errData(err) {
+    console.log('error');
+    console.log(err);
+}
 
 function draw() {
     // translate(width/2, height/2);
@@ -163,6 +282,9 @@ function draw() {
     text(myInput.value(), width/2+20,200)
 
     pop();
+
+    // console.log(allData);
+
 
 
 
@@ -234,35 +356,61 @@ stroke(0);
 
     pop();
 
+    // console.log(myKeys);
+
     for(let i = 0; i < myObjs.length; i++){
         let obj = myObjs[i];
+
         obj.show();
 
-        if(counter === 250) {
+        console.log(allData);
 
-            console.log(obj.body.position.x);
-            console.log(obj.body.position.y);
-            console.log(obj.body.angle);
+        // if(counter < 450) {
 
-            let posArr = [];
+        //     console.log(obj.body.position.x);
+        //     console.log(obj.body.position.y);
+        //     console.log(obj.body.angle);
 
-            posArr.push(obj.body.position.x, obj.body.position.y, obj.body.angle, obj.body.angularVelocity);
-            console.log(posArr);
-            intPositions[i] = posArr;
-        }
+        //     let posArr = [];
 
-        if(counter == 251){
-            console.log(intPositions);
+        //     posArr.push(obj.body.position.x, obj.body.position.y, obj.body.angle, obj.body.angularVelocity);
+        //     console.log(posArr);
+        //     intPositions[i] = posArr;
 
-            pos_str = JSON.stringify(intPositions);
-            // storeItem('textArr', textArr);
-            setCookie("intPositions", pos_str, 1);
+        //     let data = {
+        //         positions: posArr,
+        //         word: obj.text
+        //     }
 
-        }
+
+        //     let ref = database.ref('oldInputs');
+        
+        //     ref.push(data);
+        // }
+
+     
 
         // if(counter > 250) {
         //     obj.color = 'white';
         // }
+        // posArr.push(obj.body.position.x, obj.body.position.y, obj.body.angle, obj.body.angularVelocity);
+        posArr[i] = [obj.body.position.x, obj.body.position.y, obj.body.angle, obj.body.angularVelocity];
+        // console.log(posArr[0]);
+
+        // console.log(keys[i]);
+
+        // let ref = database.ref('initialInput/' + keys[i]);
+        // ref.set({
+        //     word: obj.text,
+        //     positions: posArr[i]
+        // });
+
+        // obj.show();
+ 
+        // updateData(obj.word, posArr[i], myKeys[i]);
+            // console.log(key);
+
+    
     }
 
 
@@ -278,6 +426,13 @@ stroke(0);
     //     console.log(letter);
     // }
 
+
+
+
+    // console.log(myKeys);
+
+
+
  
     counter++;
     // console.log(counter);
@@ -288,17 +443,42 @@ stroke(0);
 function rewrite() {
     counter = 0;
     let newText = myInput.value();
-    let n = new myLetter(newText, random(150, 630), 50, 0, 0);
+    let randomX = random(150, 630);
+    let n = new myLetter(newText, randomX, 50, 0, 0);
+    let pos = [];
+    pos.push(n.body.position.x, n.body.position.y, n.body.angle, n.body.angularVelocity);
+    posArr.push(pos);
     myObjs.push(n);
 
-    redraw();
 
 
     myLetters.push(newText);
     letter_str = JSON.stringify(myLetters);
     // storeItem('textArr', textArr);
     setCookie("myLetters", letter_str, 1);
- 
+
+    let data = {
+        word: myInput.value(),
+        positions: pos
+    }
+
+    console.log(n.invel);
+
+    let ref = database.ref('initialInput');
+
+    let result = ref.push(data);
+
+    console.log(result.key);
+
+    myKeys.push(result.key);
+
+
+    console.log(myKeys);
+
+    
+
+    redraw();
+
 
     
 }

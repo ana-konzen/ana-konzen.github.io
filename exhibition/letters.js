@@ -6,7 +6,7 @@ class myLetter {
         this.posy = 100;
         this.color = '#c40404';
         this.size = 100;
-        this.font = font;
+        // this.font = font;
         this.array = [];
         this.inx = inx;
         this.iny = iny;
@@ -21,7 +21,7 @@ class myLetter {
 
 
 
-        this.points = this.font.textToPoints(this.text, 0, 0, this.size, { sampleFactor:  0.4, simplifyThreshold: 0 });
+        this.points = font.textToPoints(this.text, 0, 0, this.size, { sampleFactor:  0.4, simplifyThreshold: 0 });
 
         for(let p of this.points){
             let b = Bodies.circle(p.x, p.y, 1, { });
