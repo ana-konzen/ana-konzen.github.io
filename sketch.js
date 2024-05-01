@@ -75,11 +75,14 @@ function protoggleFunction() {
 }
 
 function windowResized() {
-  if(isLooping()){
-    resizeCanvas(windowWidth, windowHeight);
-  } else {
-    resizeCanvas(windowWidth, windowHeight, noRedraw);
-  }
+  // if(isLooping()){
+  //   resizeCanvas(windowWidth, windowHeight);
+  // } else {
+  //   resizeCanvas(windowWidth, windowHeight, noRedraw);
+  // }
+
+  resizeCanvas(windowWidth, windowHeight);
+
   }
 
 function draw() {

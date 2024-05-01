@@ -28,9 +28,9 @@ transition: 500ms;
 
 #line {
     position: fixed;
-    top: 101px;
+    top: 100px;
     width: 100vw;
-    height: 1px;
+    height: 2px;
     background: black;
 }
 
@@ -220,10 +220,8 @@ font-style: italic;
     flex-wrap: wrap;
     overflow: scroll;
     padding-left: 40px;
-    /* margin-top: 40px; */
-    /* background: red; */
+    margin-top: 40px;
     padding-right: 40px;
-    padding-top: 20px;
     padding-bottom: 140px;
     justify-content: space-between;
 }
@@ -259,9 +257,6 @@ font-style: italic;
     transition: 0.5s;
     position: absolute;
     text-align: center;
-    font-family: "eb-garamond", serif;
-    font-weight: 300;
-    font-style: normal;
     line-height: 350px;
     /* display: none; */
     /* pointer-events: none; */
@@ -518,7 +513,7 @@ cursor: crosshair;
         width: 100vw;
         left: 50vw;
         transform: translateX(-50%);
-        top: 100px;
+        top: 120px;
         /* overflow: scroll; */
     cursor: crosshair;
     
@@ -672,7 +667,6 @@ cursor: crosshair;
         /* background: red; */
         width: 100vw;
         bottom: 0;
-        left: 50px;
         height: calc(100vh - 102px);
         display: flex;
     }
@@ -680,19 +674,18 @@ cursor: crosshair;
     #proImages {
         /* background: green; */
         height: 100%;
-        width: 60%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         overflow: scroll;
         justify-items: center;
         align-items: center;
-        padding-top: 4px;
-        /* border-left: solid 1px black; */
+        border-left: solid 1px black;
 
     }
 
     #proImages img {
-        width: 99%;
+        width: 90%;
         margin-bottom: 5px;
     }
 
@@ -710,7 +703,7 @@ cursor: crosshair;
     #description {
         height: 100%;
         width: 50%;
-        border-left: solid 1px black;
+        border-left: solid 2px black;
         padding-left: 50px;
 
     }
@@ -727,8 +720,6 @@ cursor: crosshair;
     .row {
         margin: 10px;
         height: 100px;
-        margin-left: -20px;
-
     }
 
     .main {
@@ -736,7 +727,6 @@ cursor: crosshair;
         flex-flow: column;
         height: 500px;
         margin-top: -30px;
-        /* margin-left: -20px; */
         /* background: red; */
     }
 
@@ -755,7 +745,7 @@ cursor: crosshair;
         margin-bottom: 10px;
     }
 
-    #linkButton {
+    #prolink {
         position: relative;
         top: 10px;
         font-family: "eb-garamond", serif;
@@ -766,7 +756,6 @@ cursor: crosshair;
         width: 180px;
         background: none;
         text-align: center;
-        cursor: pointer;
     }
 
     #proinfo {

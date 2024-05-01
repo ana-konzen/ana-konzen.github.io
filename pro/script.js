@@ -19,11 +19,6 @@ proPage.style.display = 'none';
 
 let proHeader = document.getElementById("header");
 
-let proLink = document.getElementById("proLink");
-
-let linkButton = document.getElementById("linkButton");
-
-
 let client = document.getElementById("client");
 let year = document.getElementById("year");
 let medium = document.getElementById("medium");
@@ -155,9 +150,7 @@ proText.innerHTML = data[0].Text;
     
         let caption = document.createElement("div");
         caption.classList.add('titles');
-        // caption.innerHTML = dp.Client;
-
-      
+        caption.innerHTML = dp.Client;
     
         let imagee = document.createElement("div");
         imagee.classList.add('images');
@@ -168,47 +161,20 @@ proText.innerHTML = data[0].Text;
 
         let imgName = document.createElement("div");
         imgName.classList.add('imageName');
-        // imgName.innerHTML = dp.Client;
+        imgName.innerHTML = dp.Client;
 
 
         imagee.addEventListener('mousedown', function (){
-            tDesc.innerHTML = "";
-            // console.log(dp.Client);
+            console.log(dp.Client);
             proPage.style.display = 'flex';
             proCont.classList.remove("appearFlex");
             proCont.classList.add("disappear");
             proHeader.innerHTML = dp.Header;
-            if(dp.Text == undefined) {
-                proText.innerHTML = '';
-            } else {
             proText.innerHTML = dp.Text;
-
-            }
-
-            if(dp.Link === '0') {
-                proLink.style.display = 'none';
-
-            } else {
-                proLink.style.display = 'block';
-
-            proLink.href = dp.Link;
-            linkButton.innerHTML = dp.LinkName;
-
-
-            }
-
-            console.log(dp.LinkPrototype);
-            
-
+            // client.innerHTML = dp.Client;
             year.innerHTML = dp.Year;
             medium.innerHTML = dp.Medium;
-
-            let imgArr = dp.Images.split(' ');
-            console.log(imgArr);
-            proImages.innerHTML = '';
-            for (let img of imgArr){
-            proImages.innerHTML += '<img src="' + img + '">';
-            }
+            proImages.innerHTML = '<img src="' + dp.Main_Image + '">';
 
             let dtag1 = document.createElement("div");
             dtag1.innerHTML = dp.Tag1;
@@ -224,8 +190,6 @@ proText.innerHTML = data[0].Text;
                     tDesc.appendChild(dtag3);
                 }
             }
-
-            
 
         })
         
@@ -263,14 +227,57 @@ proText.innerHTML = data[0].Text;
     }
 
 
+    let myTags = allTags.filter((value, index) => allTags.indexOf(value) === index);
 
+    myTags.splice(myTags.indexOf('None'), 1);
 
     let myImages = document.querySelectorAll('.imageCont');
+    let taggedImages = document.querySelectorAll('.tags div');
+    console.log(taggedImages);
     console.log(myImages);
+
+    for (let tgimg of taggedImages){
+        console.log(tgimg.innerHTML);
+
+    }
 
   
 
-   
+    for (let tag of myTags){
+        let newTag = document.createElement('div');
+        newTag.innerHTML = tag;
+        newTag.classList.add('active');
+        tagCont.appendChild(newTag);
+
+        newTag.addEventListener('click', function() {
+            if( newTag.classList.contains('active')){
+                newTag.classList.remove('active');
+                newTag.classList.add('inactive');
+                for (let image of myImages){
+                    let tagss = image.children[1].children;
+                    for (let tg of tagss){
+                        if (tg.innerHTML == tag){
+                            image.style.display = 'none';
+                        }
+                    }
+                }
+            } else {
+                newTag.classList.add('active');
+                newTag.classList.remove('inactive');
+                for (let image of myImages){
+                    let tagss = image.children[1].children;
+                    for (let tg of tagss){
+                        if (tg.innerHTML == tag){
+                            image.style.display = 'flex';
+                        }
+                    }
+                }
+                
+            }
+       
+        })
+
+    }
 
     
 
