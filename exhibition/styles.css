@@ -97,6 +97,7 @@ canvas {
     -webkit-appearance: none; 
   appearance: none;
   width: 25px; 
+  box-shadow: none;
   height: 25px; 
   border-radius: 50%;
   background: black;
@@ -111,6 +112,7 @@ canvas {
     width: 25px;
   height: 25px; 
   border-radius: 50%;
+  box-shadow: none;
 
   background: black; 
     
