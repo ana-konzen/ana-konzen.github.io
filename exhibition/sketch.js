@@ -76,17 +76,6 @@ let myFonts = [];
 
 function preload() {
      font = loadFont('ABCArizonaMix-Bold-Trial.otf');
-
-    //  graphik = loadFont('Graphik-Medium.otf');
-    // //  typewriter = loadFont('AmericanTypewriter.ttc');
-    //  gilroy = loadFont('Gilroy-Light.otf');
-
-    // myFonts = [arizona, graphik, gilroy];
-
-
-
-
-    // font = myFonts[0];
   }
 
 
@@ -109,7 +98,6 @@ function setup () {
 
     console.log(firebase);
 
-    // counter = 0;
 
 
     createCanvas(1600, windowHeight + 30);
@@ -130,10 +118,6 @@ function setup () {
     createColorButtons('colorCont', 0);
     createColorButtons('strokeCont', 1);
 
-    // console.log(myInput.value());
-
-    // fontSelect = createSlider(0, 2, 1);
-    // fontSelect.parent('fontCont');
 
     sizeSlider = createSlider(50, 200, 125);
     sizeSlider.parent('sizeCont');
@@ -210,11 +194,6 @@ function draw() {
 
     }
 
-    // let strokeSize = map(strokeSlider.value(), 1, 21, )
-
-    let fonts = ['arizona', 'graphik', 'gilroy'];
-
-
     if (selectedColors.length == 0){
         preview.style.webkitTextStroke = strokeSlider.value() / 8 + 'px  ' + 'black';
 
@@ -224,10 +203,6 @@ function draw() {
     }
 
     preview.style.fontSize = sizeSlider.value() / 2 + 'px';
-    // preview.style.fontFamily = fonts[fontSelect.value()];
-
-
-
     
     for(let key in myObjs){
         let obj = myObjs[key];
@@ -252,7 +227,6 @@ function draw() {
             database.ref('myWords/' + mykeys[i]).remove();
         }
     }
-    counter++;
     }
 
 
@@ -260,17 +234,9 @@ function rewrite() {
     counter = 0;
     let randomX = random(150, 630);
     initX.push(randomX);
-    // console.log(initX);
-    // console.log(selectedColor);
-    // let n = new myLetter(newText, randomX, 50, 0, 0);
     let pos = [randomX, 50, 0, 0];
-    // pos.push(n.body.position.x, n.body.position.y, n.body.angle, n.body.angularVelocity);
     posArr.push(pos);
 
-    
-    // console.log(arizona);
-
-    // console.log(myFonts[fontSelect.value()]);
 
     let data = {
         word: myInput.value(),
@@ -291,13 +257,9 @@ function rewrite() {
     let result = ref.push(data);
     let posRef = database.ref('myPositions/' + result.key);
     posRef.set(posData);
-
     
     myKeys.push(result.key);
 
-
-    // let n = new myLetter(myInput.value(), selectedColors[0], selectedColors[1], sizeSlider.value(), strokeSlider.value(), randomX, 0, 0, 0);
-    // myObjs.push(n);
 
     redraw();
 
@@ -326,7 +288,6 @@ function createColorButtons(container, index) {
             console.log(selectedColors);
          
             arr[arr.length - 1].style('border', '3px solid aqua');
-            // div.classList.add('selected');
         }) 
     }
 
