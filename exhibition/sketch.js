@@ -6,6 +6,15 @@ let fontCont = document.getElementById('fontCont');
 let sizeCont = document.getElementById('sizeCont');
 let weightCont = document.getElementById('weightCont');
 
+let wcounter = document.getElementById('wcounter');
+let chcounter = document.getElementById('chcounter');
+
+let dateCont = document.getElementById('date');
+let hourCont = document.getElementById('hour');
+
+
+
+
 
 
 let preview = document.getElementById('preview');
@@ -18,9 +27,15 @@ let font;
 let letterArr = [];
 let myLetters = [];
 
+let groundW, groundH;
+
+let wallW, wallH; 
+
 let myPositions;
 
 let posArr = [];
+
+let submitButton;
 
 let refAll;
 
@@ -54,6 +69,8 @@ let counter = 0;
 
 let ground, wall1, wall2;
 
+let wally, wall1x, wall2x, groundy, groundx;
+
 let selectedColors = [];
 
 let control;
@@ -69,6 +86,9 @@ let database;
 let arizona, graphik, typewriter, gilroy;
 
 let myFonts = [];
+
+let wordCount = 0;
+let characterCount = 0;
 
 
 
@@ -100,23 +120,30 @@ function setup () {
 
 
 
-    createCanvas(1600, windowHeight + 30);
+    createCanvas(windowWidth, windowHeight + 30);
+
     
    
     console.log(myLetters);
 
     myInput = createInput();
+    myInput.elt.maxLength = 15;
+    myInput.elt.minLength = 2;
+
+    console.log(myInput);
     myInput.parent('inputCont');
 
     engine = Engine.create();
 
-    let button = createButton('Submit');
-    button.parent('buttonCont')
-    button.mousePressed(rewrite);
+    submitButton = createButton('Submit');
+    submitButton.parent('buttonCont')
+    submitButton.mousePressed(rewrite);
+
 
     let bt = createButton('Test');
     bt.parent('buttonCont');
     bt.mousePressed(testFunction);
+
 
 
     createColorButtons('colorCont', 0);
@@ -126,17 +153,24 @@ function setup () {
     sizeSlider = createSlider(50, 200, 125);
     sizeSlider.parent('sizeCont');
 
+    sizeSlider.addClass('slider');
+
     strokeSlider = createSlider(1, 17, 9);
     strokeSlider.parent('weightCont');
+    strokeSlider.addClass('slider');
 
 
-    ground = Bodies.rectangle(400, height-10, width/2, 40, { isStatic: true,  friction: 1});
-    wall1 = Bodies.rectangle(20, height/2, 40, height, { isStatic: true, friction: 1});
-    wall2 = Bodies.rectangle(width/2 - 10, height/2, 40, height, { isStatic: true, friction: 1});
-    control = Bodies.rectangle(0, 0, 50, 50);
+    groundW = width * 4;
+    groundH = 80;
+    wallW = 40;
+    wallH = height * 4;
 
-    Composite.add(engine.world, [ground, wall1, wall2]);
+    groundx = width - groundW / 2;
+    groundy = height + groundH / 8;
 
+    ground = new myBound(groundx, groundy, groundW, groundH);
+    wall1 = new myBound(-wallW / 2, height - wallH / 2, wallW, wallH);
+    wall2 = new myBound(width + wallW / 2, height - wallH / 2, wallW, wallH);
 
     let ref = database.ref('myWords');
     ref.on('child_added', function(myData) {
@@ -177,18 +211,95 @@ function setup () {
         }
     })
 
+    database.ref('wordNumber').on('value', function(myData) {
+        if (myData.val() == null){
+            console.log('no data yet');
+        } else {
+        let data = myData.val().info;
+        wordCount = data.words;
+        characterCount = data.characters;
+        wcounter.innerHTML = wordCount;
+        chcounter.innerHTML = characterCount;}
+
+    });
+
+
+
+
+
     }
+
+function windowResized () {
+    // resizeCanvas(windowWidth, windowHeight + 30);
+    // repositionBodies();
+
+}
+
+function setDate () {
+    let today = new Date();
+
+    let weekday = new Intl.DateTimeFormat("en-US", {weekday: "long"}).format(today);
+    let month = new Intl.DateTimeFormat("en-US", {month: "long"}).format(today);
+    let day = new Intl.DateTimeFormat("en-US", {day: "numeric"}).format(today);
+
+    dateCont.innerHTML = weekday + ", " + month + "<span class='counters'>&nbsp" + day + "</span>";
+
+    let options = {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        timeZone: "America/New_York"
+      };
+
+    hourCont.innerHTML = new Intl.DateTimeFormat("en-US", options).format(today);
+
+}
+
+function repositionBodies() {
+
+    ground.x = width - groundW / 2;
+    ground.y = height + groundH / 8;
+    ground.update();
+
+    wall1.x = - wallW / 2;
+    wall1.y = height - wallH / 2;
+    wall1.update();
+
+    wall2.x = width + wallW / 2;
+    wall2.y = height - wallH / 2;
+    wall2.update();
+
+ 
+    
+
+}
 
 
 function draw() {
+    setDate();
+
 
     noFill();
-    background(255);
+    background(250);
     Engine.update(engine);
+
 
     strokeJoin(ROUND);
     rectMode(CENTER);
     ellipseMode(CENTER);
+
+    if((myInput.value().length < 2) || selectedColors.length < 2){
+    submitButton.elt.disabled = true;
+
+    } else {
+    submitButton.elt.disabled = false;
+
+
+    }
+
+    
+
+
 
     if(myInput.value() == ""){
         preview.innerHTML = 'Preview';
@@ -199,14 +310,14 @@ function draw() {
     }
 
     if (selectedColors.length == 0){
-        preview.style.webkitTextStroke = strokeSlider.value() / 8 + 'px  ' + 'black';
+        preview.style.webkitTextStroke = strokeSlider.value() / 5 + 'px  ' + 'black';
 
     } else {
     preview.style.color = selectedColors[0];
-    preview.style.webkitTextStroke = strokeSlider.value() / 8 + 'px  ' + selectedColors[1];
+    preview.style.webkitTextStroke = strokeSlider.value() / 5 + 'px  ' + selectedColors[1];
     }
 
-    preview.style.fontSize = sizeSlider.value() / 2 + 'px';
+    preview.style.fontSize = sizeSlider.value() / 2.5 + 'px';
 
 
     
@@ -225,25 +336,33 @@ function draw() {
     }
 
     mykeys = Object.keys(myObjs)
-    if(mykeys.length > 20) {
-        console.log('bigger than 20!');
+    if(mykeys.length > 40) {
+        console.log('bigger than 40!');
         console.log(myObjs[mykeys[0]].body);
-        for(let i = 0; i < 5; i ++){
+        for(let i = 0; i < 10; i ++){
             Composite.remove(engine.world, myObjs[mykeys[i]].body);
             delete myObjs[mykeys[i]];
             database.ref('myPositions/' + mykeys[i]).remove();
             database.ref('myWords/' + mykeys[i]).remove();
         }
     }
+
+
+    ground.show();
+    wall1.show();
+    wall2.show();
+
+
+
     }
 
 
 function rewrite() {
-    counter = 0;
+
+    // if(inputValue())
+    
+
     let randomX = random(150, 630);
-    initX.push(randomX);
-    let pos = [randomX, 50, 0, 0];
-    posArr.push(pos);
 
 
     let data = {
@@ -270,6 +389,15 @@ function rewrite() {
     
     myKeys.push(result.key);
 
+    wordCount++;
+    characterCount = characterCount + myInput.value().length;
+
+    database.ref('wordNumber/' + 'info').set({
+        words: wordCount,
+        characters: characterCount
+    })
+  
+
 
     redraw();
 
@@ -277,8 +405,12 @@ function rewrite() {
 }
 
 function testFunction (){
-    let refTest = database.ref('Test');
-    refTest.push({text: 'test'});
+
+
+ 
+
+    // let refTest = database.ref('Test');
+    // refTest.push({text: 'test'});
 
 }
 
