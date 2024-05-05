@@ -151,61 +151,41 @@ function setup () {
 
 
     let ref = database.ref('myWords');
-
-    // ref.get().then((snapshot) => {
-    //   if (snapshot.exists()) {
-    //     let data = snapshot.val();
-    //     let keys = Object.keys(data);
-    //     myKeys = Array(keys.length);
-    //     console.log(keys);
-    //     for(let i = 0; i < keys.length; i ++){
-    //         let key = data[keys[i]];
-    //         myKeys[key.index] = keys[i];
-
-    //     }
-    //     console.log(myKeys);
-    //   } else {
-    //     console.log("No data available");
-    //   }
-    // }).catch((error) => {
-    //   console.error(error);
-    // });
-
     ref.on('child_added', function(myData) {
-        // console.log(data.val());
-        // keys = Object.keys(data.val());
-
-        let data = myData.val();
-        console.log(myData.key);
-        let posRef = database.ref('myPositions');
-        posRef.child(myData.key).get().then((snapshot) => {
-            if (snapshot.exists()) {
-              console.log(snapshot.val());
-
-              console.log(data);
-
-              let n = new myLetter(data.word, data.background, 
-                data.stroke, data.size, data.weight, snapshot.val().x, snapshot.val().y, snapshot.val().angle, 0);
-              myObjs[myData.key] = n;
-              console.log(myObjs);
-            } else {
-              console.log("No data available");
-            }
-          }).catch((error) => {
-            console.error(error);
-          });
-     
+        let key = myData.key
+        if (!(key in myObjs)) {
+            let n = new myLetter(myData.val().word, myData.val().background, 
+                myData.val().stroke, myData.val().size, myData.val().weight, 
+                null, null, null)
+            myObjs[key] = n
+        }
+        else {
+            console.log(myObjs[key])
+            myObjs[key].text = myData.val().word
+            myObjs[key].color = myData.val().background
+            myObjs[key].stroke = myData.val().stroke
+            myObjs[key].size = myData.val().size
+            myObjs[key].weight = myData.val().weight
+        } 
     })
 
-    console.log(myObjs);
-
-    // let posRef = database.ref('myPositions');
-    // posRef.on('child_added', function(myData) {
-    //     let data = myData.val();
-    //     myObjs[myObjs.length - 1].inx = data.x;
-    //     myObjs[myObjs.length - 1].iny = data.y;
-    //     myObjs[myObjs.length - 1].inangle = data.angle;    
-    // })
+    let posRef = database.ref('myPositions');
+    posRef.on('child_added', function(myData) {
+        let key = myData.key
+        if (!(key in myObjs)) {
+            let n = new myLetter(null, null, null, null, null, 
+                myData.val().x, myData.val().y, myData.val().angle)
+            myObjs[key] = n
+        }
+        else {
+            console.log('x: ' + myData.val().x)
+            let n = new myLetter(myObjs[key].text, myObjs[key].color, 
+                myObjs[key].stroke, myObjs[key].size, myObjs[key].weight, 
+                myData.val().x, myData.val().y, myData.val().angle)
+            myObjs[key] = n
+            console.log('inx: ' + myObjs[key].inx)
+        }
+    })
 
     }
 
@@ -308,10 +288,9 @@ function rewrite() {
     }
 
     let ref = database.ref('myWords');
-    let result = ref.push();
+    let result = ref.push(data);
     let posRef = database.ref('myPositions/' + result.key);
     posRef.set(posData);
-    ref.child(result.key).set(data);
 
     
     myKeys.push(result.key);

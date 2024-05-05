@@ -1,6 +1,6 @@
 
 class myLetter {
-    constructor(word, usercolor, usercolor2, usersize, userweight, inx, iny, inangle, invel){
+    constructor(word, usercolor, usercolor2, usersize, userweight, inx, iny, inangle){
         this.text = word;
         this.posx = 60;
         this.posy = 100;
@@ -20,7 +20,7 @@ class myLetter {
         this.inx = inx;
         this.iny = iny;
         this.inangle = inangle;
-        this.invel = invel;
+        // this.invel = invel;
         this.posHis = [];
 
         this.points = font.textToPoints(this.text, 0, 0, this.size, { sampleFactor:  0.1, simplifyThreshold: 0 });
@@ -39,7 +39,7 @@ class myLetter {
 
         // console.log(this.body);
 
-        Matter.Body.setAngularVelocity(this.body, this.invel);
+        // Matter.Body.setAngularVelocity(this.body, this.invel);
         Matter.Body.setPosition(this.body, Matter.Vector.create(this.inx, this.iny));
         Matter.Body.setAngle(this.body, this.inangle);
         Composite.add(engine.world, this.body);
