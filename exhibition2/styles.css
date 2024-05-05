@@ -6,10 +6,6 @@ canvas {
     display: none;
 }
 
-#container {
-    display: none;
-}
-
 @font-face {
     font-family: gilroy;
     src: url('Gilroy-Light.otf')
@@ -98,15 +94,6 @@ canvas {
 
 
 
-
-
-
-@media only screen and (min-width: 768px) {
-
-    /* #menu {
-        display: none;
-    }
-     */
     canvas {
         display: block;
         z-index: 0;
@@ -173,4 +160,3 @@ canvas {
 
 
 
-}

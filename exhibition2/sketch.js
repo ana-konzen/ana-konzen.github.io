@@ -24,7 +24,7 @@ let posArr = [];
 
 let refAll;
 
-let myObjs = {};
+let myObjs = [];
 
 let allData = [];
 
@@ -73,7 +73,6 @@ let myFonts = [];
 
 
 
-
 function preload() {
      font = loadFont('ABCArizonaMix-Bold-Trial.otf');
 
@@ -92,23 +91,6 @@ function preload() {
 
     
 function setup () {
-    const firebaseConfig = {
-        apiKey: "AIzaSyBfYwIYYJlhqXS55UidVjMkGhceMakJuL4",
-        authDomain: "wordplay-2f97c.firebaseapp.com",
-        projectId: "wordplay-2f97c",
-        storageBucket: "wordplay-2f97c.appspot.com",
-        messagingSenderId: "721772964267",
-        appId: "1:721772964267:web:4af68029cfcee41b980aee",
-        measurementId: "G-XDRL2Y65D3",
-        databaseURL: "https://wordplay-2f97c-default-rtdb.firebaseio.com/"
-      };
-      
-    firebase.initializeApp(firebaseConfig);
-
-    database = firebase.database();
-
-    console.log(firebase);
-
     // counter = 0;
 
 
@@ -149,65 +131,8 @@ function setup () {
 
     Composite.add(engine.world, [ground, wall1, wall2]);
 
-
-    let ref = database.ref('myWords');
-
-    // ref.get().then((snapshot) => {
-    //   if (snapshot.exists()) {
-    //     let data = snapshot.val();
-    //     let keys = Object.keys(data);
-    //     myKeys = Array(keys.length);
-    //     console.log(keys);
-    //     for(let i = 0; i < keys.length; i ++){
-    //         let key = data[keys[i]];
-    //         myKeys[key.index] = keys[i];
-
-    //     }
-    //     console.log(myKeys);
-    //   } else {
-    //     console.log("No data available");
-    //   }
-    // }).catch((error) => {
-    //   console.error(error);
-    // });
-
-    ref.on('child_added', function(myData) {
-        // console.log(data.val());
-        // keys = Object.keys(data.val());
-
-        let data = myData.val();
-        console.log(myData.key);
-        let posRef = database.ref('myPositions');
-        posRef.child(myData.key).get().then((snapshot) => {
-            if (snapshot.exists()) {
-              console.log(snapshot.val());
-
-              console.log(data);
-
-              let n = new myLetter(data.word, data.background, 
-                data.stroke, data.size, data.weight, snapshot.val().x, snapshot.val().y, snapshot.val().angle, 0);
-              myObjs[myData.key] = n;
-              console.log(myObjs);
-            } else {
-              console.log("No data available");
-            }
-          }).catch((error) => {
-            console.error(error);
-          });
-     
-    })
-
-    console.log(myObjs);
-
-    // let posRef = database.ref('myPositions');
-    // posRef.on('child_added', function(myData) {
-    //     let data = myData.val();
-    //     myObjs[myObjs.length - 1].inx = data.x;
-    //     myObjs[myObjs.length - 1].iny = data.y;
-    //     myObjs[myObjs.length - 1].inangle = data.angle;    
-    // })
-
     }
+
 
 
 function draw() {
@@ -248,28 +173,19 @@ function draw() {
 
     
 
-    for(let key in myObjs){
-        let obj = myObjs[key];
+
+    for(let i = 0; i < myObjs.length; i++){
+        let obj = myObjs[i];
         obj.update();
-        database.ref('myPositions/' + key).set({
-            x: obj.body.position.x,
-            y: obj.body.position.y,
-            angle: obj.body.angle
-        });
         obj.show();
     }
 
-    mykeys = Object.keys(myObjs)
-    if(mykeys.length > 20) {
+    if(myObjs.length > 25) {
         console.log('bigger than 20!');
-        console.log(myObjs[mykeys[0]].body);
+        console.log(myObjs[myObjs.length - 1].body);
         for(let i = 0; i < 5; i ++){
-            Composite.remove(engine.world, myObjs[mykeys[i]].body);
-            delete myObjs[mykeys[i]];
-            database.ref('myPositions/' + mykeys[i]).remove();
-            database.ref('myWords/' + mykeys[i]).remove();
-
-
+            Composite.remove(engine.world, myObjs[0].body);
+            myObjs.splice(0, 1);
         }
     }
     counter++;
@@ -292,34 +208,10 @@ function rewrite() {
 
     // console.log(myFonts[fontSelect.value()]);
 
-    let data = {
-        word: myInput.value(),
-        background: selectedColors[0],
-        stroke: selectedColors[1],
-        size: sizeSlider.value(),
-        weight: strokeSlider.value(),
-        initx: randomX
-    }
 
-    let posData = {
-        x: randomX,
-        y: 0,
-        angle: 0
-    }
-
-    let ref = database.ref('myWords');
-    let result = ref.push();
-    let posRef = database.ref('myPositions/' + result.key);
-    posRef.set(posData);
-    ref.child(result.key).set(data);
-
-    
-    myKeys.push(result.key);
-
-
-    // let n = new myLetter(myInput.value(), selectedColors[0], selectedColors[1], sizeSlider.value(), strokeSlider.value(), randomX, 0, 0, 0);
-    // myObjs.push(n);
-
+    let n = new myLetter(myInput.value(), selectedColors[0], selectedColors[1], sizeSlider.value(), strokeSlider.value(), randomX, 0, 0, 0);
+    myObjs.push(n);
+    console.log(myObjs.length);
     redraw();
 
     

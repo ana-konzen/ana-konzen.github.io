@@ -54,7 +54,7 @@ class myLetter {
         }
 
 
-        if(this.posHis.length > 50){
+        if(this.posHis.length > 100){
             this.posHis.splice(0, 1);
         }
 
