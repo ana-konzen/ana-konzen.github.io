@@ -129,6 +129,8 @@ function setup () {
     myInput = createInput();
     myInput.elt.maxLength = 15;
     myInput.elt.minLength = 2;
+    myInput.elt.placeholder = 'Type here';
+
 
     console.log(myInput);
     myInput.parent('inputCont');
@@ -140,9 +142,9 @@ function setup () {
     submitButton.mousePressed(rewrite);
 
 
-    let bt = createButton('Test');
-    bt.parent('buttonCont');
-    bt.mousePressed(testFunction);
+    // let bt = createButton('Test');
+    // bt.parent('buttonCont');
+    // bt.mousePressed(testFunction);
 
 
 
