@@ -4,23 +4,14 @@ class myLetter {
         this.text = word;
         this.posx = 60;
         this.posy = 100;
-        // this.alpha = 255;
-        // this.color = color(19, 4, 4, this.alpha);
-        // this.stroke = color(0, 0, 0, this.alpha);
-        // this.color = '#c40404';
         this.color = usercolor;
         this.stroke = usercolor2;
-
-
         this.size = usersize;
         this.weight = userweight;
-
-        // this.font = font;
         this.array = [];
         this.inx = inx;
         this.iny = iny;
         this.inangle = inangle;
-        // this.invel = invel;
         this.posHis = [];
 
         this.points = font.textToPoints(this.text, 0, 0, this.size, { sampleFactor:  0.1, simplifyThreshold: 0 });
@@ -37,9 +28,6 @@ class myLetter {
             mass: 0.1
         });
 
-        // console.log(this.body);
-
-        // Matter.Body.setAngularVelocity(this.body, this.invel);
         Matter.Body.setPosition(this.body, Matter.Vector.create(this.inx, this.iny));
         Matter.Body.setAngle(this.body, this.inangle);
         Composite.add(engine.world, this.body);
@@ -61,16 +49,6 @@ class myLetter {
         let currentPos = [this.body.position.x, this.body.position.y, this.body.angle, this.body.angularVelocity, dotsPos];
 
         this.posHis.push(currentPos);
-        // console.log(this.posHis[0]);
-
-        // this.PosHis[0] = 
-
-        // this.alpha = this.alpha + 0.1;
-        // this.alpha = 255;
-        // this.color = color(196, 4, 4, this.alpha);
-        // this.stroke = color(0, 0, 0, this.alpha);
-
-
 
     }
 
@@ -106,7 +84,6 @@ class myLetter {
                 translate(this.posHis[i][0], this.posHis[i][1]);
                 rotate(this.posHis[i][2]);
                 
-                // stroke(this.color);
 
                 text(this.text, 0, -this.size / 5);
 
