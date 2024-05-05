@@ -114,6 +114,10 @@ function setup () {
     button.parent('buttonCont')
     button.mousePressed(rewrite);
 
+    let bt = createButton('Test');
+    bt.parent('buttonCont');
+    bt.mousePressed(testFunction);
+
 
     createColorButtons('colorCont', 0);
     createColorButtons('strokeCont', 1);
@@ -203,16 +207,20 @@ function draw() {
     }
 
     preview.style.fontSize = sizeSlider.value() / 2 + 'px';
+
+
     
     for(let key in myObjs){
         let obj = myObjs[key];
         if ((obj.inx === null) || (obj.text === null)) break;
         obj.update();
+        if(frameCount % 60 === 0){
+            console.log('updated position');
         database.ref('myPositions/' + key).set({
             x: obj.body.position.x,
             y: obj.body.position.y,
             angle: obj.body.angle
-        });
+        });}
         obj.show();
     }
 
@@ -253,7 +261,9 @@ function rewrite() {
         angle: 0
     }
 
+    
     let ref = database.ref('myWords');
+    console.log('done');
     let result = ref.push(data);
     let posRef = database.ref('myPositions/' + result.key);
     posRef.set(posData);
@@ -264,6 +274,12 @@ function rewrite() {
     redraw();
 
     
+}
+
+function testFunction (){
+    let refTest = database.ref('Test');
+    refTest.push({text: 'test'});
+
 }
 
 function createColorButtons(container, index) {
