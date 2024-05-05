@@ -158,14 +158,15 @@ function setup () {
                 myData.val().stroke, myData.val().size, myData.val().weight, 
                 null, null, null)
             myObjs[key] = n
+            console.log('Added myWords key: ' + key)
         }
         else {
-            console.log(myObjs[key])
             myObjs[key].text = myData.val().word
             myObjs[key].color = myData.val().background
             myObjs[key].stroke = myData.val().stroke
             myObjs[key].size = myData.val().size
             myObjs[key].weight = myData.val().weight
+            console.log('Updated myWords key: ' + key)
         } 
     })
 
@@ -176,14 +177,15 @@ function setup () {
             let n = new myLetter(null, null, null, null, null, 
                 myData.val().x, myData.val().y, myData.val().angle)
             myObjs[key] = n
+            console.log('Added myPosition key: ' + key)
         }
         else {
-            console.log('x: ' + myData.val().x)
             let n = new myLetter(myObjs[key].text, myObjs[key].color, 
                 myObjs[key].stroke, myObjs[key].size, myObjs[key].weight, 
                 myData.val().x, myData.val().y, myData.val().angle)
+            Composite.remove(engine.world, myObjs[key].body);
             myObjs[key] = n
-            console.log('inx: ' + myObjs[key].inx)
+            console.log('Updated myPosition key: ' + key)
         }
     })
 
@@ -227,9 +229,9 @@ function draw() {
 
 
     
-
     for(let key in myObjs){
         let obj = myObjs[key];
+        if ((obj.inx === null) || (obj.text === null)) break;
         obj.update();
         database.ref('myPositions/' + key).set({
             x: obj.body.position.x,
@@ -248,8 +250,6 @@ function draw() {
             delete myObjs[mykeys[i]];
             database.ref('myPositions/' + mykeys[i]).remove();
             database.ref('myWords/' + mykeys[i]).remove();
-
-
         }
     }
     counter++;
