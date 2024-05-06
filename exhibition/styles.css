@@ -42,7 +42,7 @@ canvas {
 #menu {
     display: flex;
     flex-flow: column;
-    padding: 3vw;
+    padding: 8vw;
     padding-top: 5vh;
     width: 100vw;
     position: relative;
@@ -89,19 +89,26 @@ canvas {
     padding: 10px 0 10px 0;
     /* height: 40px; */
     border-radius: 20px;
-    color: rgb(0, 221, 37);
-    background: none;
-    box-shadow: none;
-    /* border: none; */
-    border: solid 2px rgb(0, 221, 37);
-    -webkit-text-stroke: rgb(0, 221, 37) 1px;
+    /* color: rgb(0, 221, 37); */
+    color: white;
+    /* background: rgb(0, 221, 37); */
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+background: black;
+    box-shadow: 1px 1px 6px rgb(86, 86, 86);
+    border: none;
+    /* border: solid 2px rgb(0, 221, 37); */
+    /* -webkit-text-stroke: rgb(0, 221, 37) 1px; */
+    -webkit-text-stroke: rgb(255, 255, 255) 1px;
+
 
 }
 
 #buttonCont button:disabled {
     -webkit-text-stroke: rgb(198, 197, 197) 1px;
     background: rgb(224, 224, 224);
-    border-color: rgb(198, 197, 197);
+    /* border-color: rgb(198, 197, 197); */
+    box-shadow: none;
 
     color: rgb(198, 197, 197);
 }
