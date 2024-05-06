@@ -59,7 +59,7 @@ canvas {
     margin-top: 18px;
     color: black;
     font-size: 14px;
-    -webkit-text-stroke: black 0.25px;
+    -webkit-text-stroke: black 0.5px;
     font-style: normal;
 }
 
