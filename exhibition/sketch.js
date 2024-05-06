@@ -17,7 +17,6 @@ let hourCont = document.getElementById('hour');
 
 
 
-let preview = document.getElementById('preview');
 
 
 let myText;
@@ -49,7 +48,7 @@ let updateData = [];
 
 let intPositions = [];
 
-let palette = ['#c40404', '#000000', '#2071f5', '#5fc91c', '#ffffff', '#eb9131', '#f5e133', '#b929d6', '#fa34cf'];
+let palette = ['#c40404', '#000000', '#2071f5', '#5fc91c', '#ffffff', '#eb9131', '#f5e133', '#b929d6', '#fa34cf', '#a0f2f0'];
 
 let initX = [];
 
@@ -124,16 +123,19 @@ function setup () {
 
     
    
-    console.log(myLetters);
 
     myInput = createInput();
     myInput.elt.maxLength = 15;
     myInput.elt.minLength = 2;
     myInput.elt.placeholder = 'Type here';
 
+    myInput.parent('inputCont');
+
 
     console.log(myInput);
-    myInput.parent('inputCont');
+
+  
+    
 
     engine = Engine.create();
 
@@ -303,23 +305,20 @@ function draw() {
 
 
 
-    if(myInput.value() == ""){
-        preview.innerHTML = 'Preview';
 
+    if ((selectedColors.length == 0) || (myInput.value() == "")){
+        myInput.elt.style.webkitTextStroke = 'none';
     } else {
-    preview.innerHTML = myInput.value();
+    myInput.elt.style.color = selectedColors[0];
+    myInput.elt.style.webkitTextStroke = strokeSlider.value() / 5 + 'px  ' + selectedColors[1];
 
     }
 
-    if (selectedColors.length == 0){
-        preview.style.webkitTextStroke = strokeSlider.value() / 5 + 'px  ' + 'black';
 
-    } else {
-    preview.style.color = selectedColors[0];
-    preview.style.webkitTextStroke = strokeSlider.value() / 5 + 'px  ' + selectedColors[1];
-    }
+    let inpad = map(sizeSlider.value(), 50, 200, 78, 20);
 
-    preview.style.fontSize = sizeSlider.value() / 2.5 + 'px';
+    myInput.elt.style.paddingTop = inpad + 'px';
+    myInput.elt.style.fontSize = sizeSlider.value() / 3 + 'px';
 
 
     
@@ -437,7 +436,7 @@ function createColorButtons(container, index) {
 
             console.log(selectedColors);
          
-            arr[arr.length - 1].style('border', '3px solid aqua');
+            arr[arr.length - 1].style('border', '2px solid grey');
         }) 
     }
 
