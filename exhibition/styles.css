@@ -116,6 +116,8 @@ canvas {
     width: 100%;
     font-size: 16px;
     -webkit-appearance: none;  
+    text-transform: lowercase;
+
     appearance: none;
     border: none;
     border-bottom: solid 2px rgb(0, 0, 0);
