@@ -6,6 +6,20 @@ body {
 
 }
 
+#logo-white {
+    display: none;
+}
+
+#logo-black {
+    display: block;
+    position: fixed;
+    width: 80px;
+    bottom: 50px;
+    transform: translateX(-50%);
+    left: 50vw;
+
+}
+
 canvas {
     display: none;
 }
@@ -257,6 +271,10 @@ padding-top: 50px;
         z-index: 0;
     }
 
+    #logo-black {
+        display: none;
+    }
+
     #container {
         z-index: 2;
         position: fixed;
@@ -265,6 +283,15 @@ padding-top: 50px;
         /* height: 782px; */
         height: 100vh;
         top: 0px;
+        display: block;
+    }
+
+    #logo-white {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        z-index: 2;
+        width: 100px;
         display: block;
     }
 
