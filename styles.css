@@ -9,25 +9,33 @@ overflow: hidden;
     width: 300px;
     height: 50px;
     position: fixed;
-    top: 100px;
-    left: 50px;
+    top: 200px;
+    left: 50vw;
     /* justify-content: space-between; */
     color: black;
     font-family: "eb-garamond", serif;
-font-weight: 500;
+font-weight: 400;
 font-style: normal;
+text-align: center;
 font-size: 18px;
 transition: 500ms;
+transform: translateX(-50%);
 }
 
 #menu a {
     color: black;
     font-family: "eb-garamond", serif;
-font-weight: 500;
+font-weight: 400;
 font-style: normal;
 
 }
 
+svg {
+    transform: translateX(-50%) scale(1.5);
+    top: 150px;
+    left: 50vw;
+    position: fixed;
+}
 
 
 #main-header{
