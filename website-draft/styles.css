@@ -339,7 +339,6 @@ padding: 0.5px;
     top: 150px;
     left: 60px;
     width: 300px;
-cursor: crosshair;
 
 }
 
@@ -407,13 +406,16 @@ cursor: crosshair;
 
     #menu {
         width: 500px;
+        transform: translateX(-50%);
         height: 50px;
         display: flex;
         position: fixed;
-        top: 100px;
-        left: 50px;
+        top: 120px;
+        left: 50vw;
+        height: 150px;
         justify-content: space-between;
-    cursor: crosshair;
+        align-items: center;
+        text-align: center;
     user-select: none; 
     }
     
@@ -428,10 +430,7 @@ cursor: crosshair;
     
     }
     
-    #menu a:hover {
-        color: white;
-    }
-    
+   
     canvas {
         display: block;
         position: fixed; 
@@ -441,7 +440,12 @@ cursor: crosshair;
       }
     
     
-    
+    #logo {
+        transform:  translateX(-50%) scale(1.5);
+        position: fixed;
+        left: 50vw;
+        top: 50px;
+    }
     
     
     
@@ -521,7 +525,6 @@ cursor: crosshair;
         transform: translateX(-50%);
         top: 100px;
         /* overflow: scroll; */
-    cursor: crosshair;
     
     }
 
@@ -601,7 +604,6 @@ cursor: crosshair;
         top: 150px;
         left: 60px;
         width: 350px;
-    cursor: crosshair;
     
     }
     
@@ -642,7 +644,6 @@ cursor: crosshair;
         top: 150px;
         left: 60px;
         width: 350px;
-    cursor: crosshair;
     
     }
     #conCont p, a {

@@ -6,17 +6,6 @@ let size = 100;
 let opacity = 255;
 let circleArray = [];
 
-console.log(proCont.classList.contains("appear"));
-
-let toggleButton = document.getElementById("toggleButton");
-let toggleCircle = document.getElementById("toggleCircle");
-
-let myBuffer = document.getElementById("buffer");
-let myBuffer2 = document.getElementById("buffer2");
-
-
-
-let instructions = document.getElementById("instructions");
 
 
 
@@ -24,8 +13,14 @@ let instructions = document.getElementById("instructions");
 
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-    cursor(CROSS);
+    createCanvas(windowWidth, windowHeight, WEBGL);
+    brush.load();
+    console.log(brush.box());
+    console.log('test');
+  brush.set('pen', "#000", 2);
+  frameRate(5);
+
+
 
     // toggleButton.addEventListener('click', toggleFunction);
     // projects.addEventListener('click', protoggleFunction);
@@ -35,44 +30,8 @@ function setup() {
 
 }
 
-function toggleFunction() {
-  if(toggleCircle.classList.contains('off')){
-    toggleCircle.classList.remove('off');
-    loop();
-    cursor(CROSS);
-    instructions.style.display = 'block';
-    myBuffer.style.display = 'none';
-    myBuffer2.style.display = 'none';
-    proCont.style.cursor = 'crosshair';
-    toggleButton.style.bottom = "90px";
-  } else{
-    toggleCircle.classList.add('off');
-    noLoop();
-    clear();
-    cursor(ARROW);
-    proCont.style.cursor = 'default';
-    instructions.style.display = 'none';
-    myBuffer.style.display = 'block';
-    toggleButton.style.bottom = "20px";
-
-  }
-}
-
-function protoggleFunction() {
-  
-    toggleCircle.classList.add('off');
-    noLoop();
-    // clear();
-    cursor(ARROW);
-    proCont.style.cursor = 'default';
-    instructions.style.display = 'none';
-    // myBuffer.style.display = 'block';
-    toggleButton.style.bottom = "20px";
-    // myBuffer2.style.display = 'block';
 
 
-  
-}
 
 function windowResized() {
   // if(isLooping()){
@@ -86,7 +45,18 @@ function windowResized() {
   }
 
 function draw() {
-  console.log(isLooping());
+  background('#f0f0f0');
+  
+  // brush.beginStroke('curve', 15, 30);
+  //   brush.segment(30, 40, 1);
+  //   brush.segment(40, 40, 1);
+
+
+  // brush.endStroke(30, 0.6);
+
+  brush.circle(30, 30, 30, true);
+
+
 
   // if (proCont.classList.contains("appear")) {
   //   opacity = 10;
@@ -114,6 +84,8 @@ function draw() {
 
 
 }
+
+
 
 
 // function keyPressed() {

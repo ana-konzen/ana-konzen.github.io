@@ -9,7 +9,7 @@ let projects = document.getElementById("projects");
 let about = document.getElementById("about");
 let contact = document.getElementById("contact");
 
-let mainheader = document.getElementById("main-header");
+let mainheader = document.getElementById("logo");
 
 let proText =  document.getElementById("text");
 
