@@ -110,6 +110,8 @@ canvas {
 background: black;
     /* box-shadow: 1px 1px 6px rgb(86, 86, 86); */
     border: none;
+    box-shadow: none;
+
     /* border: solid 2px rgb(0, 221, 37); */
     /* -webkit-text-stroke: rgb(0, 221, 37) 1px; */
     -webkit-text-stroke: rgb(255, 255, 255) 1px;
@@ -184,6 +186,8 @@ padding-top: 50px;
   background: black;
   padding-right: 3.5px;
   box-sizing: border-box;
+  box-shadow: none;
+
 
     padding-left: 3.5px; 
 
@@ -194,8 +198,9 @@ padding-top: 50px;
   height: 25px; 
   border-radius: 50%;
   box-shadow: none;
+  background: black;
 
-  background: rgb(95, 95, 95);
+  /* background: rgb(95, 95, 95); */
 
     
 }
