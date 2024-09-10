@@ -1,9 +1,8 @@
 body {
-    overflow: hidden;
     margin: 0;
     padding: 0;
     background: rgb(243, 243, 243);
-
+    overflow: hidden;
 }
 
 #logo-white {
@@ -109,7 +108,7 @@ canvas {
     /* text-transform: uppercase; */
     letter-spacing: 1px;
 background: black;
-    box-shadow: 1px 1px 6px rgb(86, 86, 86);
+    /* box-shadow: 1px 1px 6px rgb(86, 86, 86); */
     border: none;
     /* border: solid 2px rgb(0, 221, 37); */
     /* -webkit-text-stroke: rgb(0, 221, 37) 1px; */
@@ -177,11 +176,12 @@ padding-top: 50px;
     -webkit-appearance: none; 
   appearance: none;
   width: 25px; 
-  box-shadow: 0px 1.5px 6px rgb(166, 166, 166);
+  /* box-shadow: 0px 1.5px 6px rgb(166, 166, 166); */
   height: 25px; 
   border-radius: 50%;
   /* background: rgb(95, 95, 95); */
-  background: rgb(243, 243, 243);
+  /* background: rgb(243, 243, 243); */
+  background: black;
   padding-right: 3.5px;
   box-sizing: border-box;
 
