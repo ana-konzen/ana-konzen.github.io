@@ -3,8 +3,14 @@
     --background: #faf8f1;
 }
 
+@font-face {
+    font-family: biro;
+    src: url("BiroScriptUSPlus-Regular.otf");
+}
+
 canvas {
     transform: scale(1);
+    position: fixed;
 }
 
 #frame {
@@ -13,6 +19,7 @@ canvas {
     left: 50vw;
     top: 50vh;
     height: 750px;
+    overflow: hidden;
     width: 450px;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.419) 3px 5px 10px;
@@ -324,4 +331,19 @@ line-height: 50px;
     opacity: 1;
     color: black;
     background: none;
+}
+
+#svgCont {
+    position: absolute;
+    display: block;
+    z-index: 10;
+    transform: scale(1.3);
+    left: 0;
+    top: 0;
+}
+
+#namePath {
+    fill: rgb(83, 83, 83);
+    font-family: biro;
+    font-size: 22px;
 }
